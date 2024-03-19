@@ -3,29 +3,39 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class gui implements ActionListener{
+
+    private final int width = 800; // Width of the entire window
+    private final int height = 500; // Height of the entire window
+
+    private final int menu_width = Math.round(25f/100f*width); // Width of the menu panel (25% of the entire size)
+    private final int menu_height = 200; // Height of the menu panel
+
     // Atributes
     JButton btn_omnibus; JButton btn_pasajeros; JButton btn_ganancias; JButton btn_listado_pasajeros; JButton btn_listado_omnibus; JButton btn_buscar; JPanel omnibus; JPanel container; JPanel pasajeros; JPanel listado_omnibus; JPanel listado_pasajeros; JPanel buscar; JPanel ganancias;
 
     public void run(){
         // Window
         JFrame window = new JFrame("Terminal de Omnibus");
-        window.setSize(800,500);
+        window.setSize(this.width, this.height);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(new BorderLayout());
 
         // MENU
         JPanel menu = new JPanel();
+        menu.setLayout(new BorderLayout(0,3));
         menu.setBackground(Color.LIGHT_GRAY);
-        menu.setPreferredSize(new Dimension(300,200));
+        menu.setPreferredSize(new Dimension(menu_width, menu_height));
 
         // Title
         JLabel titulo = new JLabel("MENU");
-        titulo.setBorder(BorderFactory.createEmptyBorder(10,50,10,50));
+        titulo.setHorizontalAlignment(JLabel.CENTER);
+        titulo.setBorder(BorderFactory.createEmptyBorder(5,50,5,50));
 
         // Buttons Menu
         JPanel buttons = new JPanel();
-        buttons.setLayout(new GridLayout(6,1));
+        buttons.setLayout(new GridLayout(6,1,2,5));
         buttons.setBackground(Color.LIGHT_GRAY);
+        buttons.setBorder(BorderFactory.createEmptyBorder(0,10,5,10));
         
         btn_omnibus = new JButton("Omnibus");
         btn_pasajeros = new JButton("Pasajeros");
@@ -63,7 +73,7 @@ public class gui implements ActionListener{
         container.setSize(400,100);
         
         // Omnibus Panel
-        omnibus = new JPanel();
+        omnibus = new JPanel(new BorderLayout());
         JLabel text1 = new JLabel("Agregar la llegada del omnibus");
         JPanel cont = new JPanel();
 
@@ -71,13 +81,13 @@ public class gui implements ActionListener{
 
         JPanel cont1 = new JPanel();
 
-        JLabel lchapa = new JLabel("Chapa");
-        JTextField chapa = new JTextField("chapa");
+        JLabel lchapa = new JLabel("Chapa: ");
+        JTextField chapa = new JTextField(12);
 
         omnibus.add(text1, BorderLayout.NORTH);
         omnibus.add(cont1, BorderLayout.SOUTH);
-        cont1.add(lchapa, BorderLayout.NORTH);
-        cont1.add(chapa, BorderLayout.NORTH);
+        cont1.add(lchapa, BorderLayout.WEST);
+        cont1.add(chapa, BorderLayout.EAST);
 
 
         // Pasajeros Panel
@@ -120,7 +130,7 @@ public class gui implements ActionListener{
         window.add(menu, BorderLayout.EAST);
 
         menu.add(titulo, BorderLayout.NORTH);
-        menu.add(buttons, BorderLayout.SOUTH);
+        menu.add(buttons, BorderLayout.CENTER);
 
         buttons.add(btn_omnibus);
         buttons.add(btn_pasajeros);
