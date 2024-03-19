@@ -86,8 +86,16 @@ public class gui implements ActionListener{
 
         omnibus.add(text1, BorderLayout.NORTH);
         omnibus.add(cont1, BorderLayout.SOUTH);
+
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
+        
+        //Aca tiene que ir el text q ya esta q hace falta q se este quieto
+        //Abajo tiene que ir un label y un textbox alineados...como esta ahi pero que ponga ABAJOOO
+        //despues eso mismo pero con los textos: destino, chofer, kilometros, asientos disponibles, dia y hora de salida, dia y hora de llegada
+        //despues un checkbox con dos opciones omnibus astro y omnibus turismo
+        // y al final un botoncito que diga salir
+
 
 
         // Pasajeros Panel
