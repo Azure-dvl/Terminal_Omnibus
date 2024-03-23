@@ -1,4 +1,4 @@
-import src.omnibus;
+import src.*;
 
 import java.awt.*;
 import javax.swing.*;
@@ -96,25 +96,32 @@ public class gui implements ActionListener{
     // Events
     public void actionPerformed(ActionEvent e){
         container.removeAll();
+        
         if (e.getSource()==btn_omnibus) {
-            omnibus bus = new omnibus();
+            src.omnibus bus = new src.omnibus();
             container.add(bus, BorderLayout.CENTER);   
         }
-        // else if (e.getSource()==btn_buscar) {
-        //     container.add(buscar, BorderLayout.CENTER);
-        // }
-        // else if(e.getSource()==btn_ganancias){
-        //     container.add(ganancias, BorderLayout.CENTER);
-        // }
-        // else if(e.getSource()==btn_pasajeros) {
-        //     container.add(pasajeros, BorderLayout.CENTER);
-        // }
-        // else if(e.getSource()==btn_listado_omnibus){
-        //     container.add(listado_omnibus, BorderLayout.CENTER);
-        // }
-        // else{
-        //     container.add(listado_pasajeros);
-        // }
+        else if (e.getSource()==btn_buscar) {
+            src.buscar buscar = new src.buscar();
+            container.add(buscar, BorderLayout.CENTER);
+        }
+        else if(e.getSource()==btn_ganancias){
+            src.ganancias ganancias = new src.ganancias();
+            container.add(ganancias, BorderLayout.CENTER);
+        }
+        else if(e.getSource()==btn_pasajeros) {
+            src.pasajeros pasajeros = new src.pasajeros();
+            container.add(pasajeros, BorderLayout.CENTER);
+        }
+        else if(e.getSource()==btn_listado_omnibus){
+            src.lista_omnibus lista_omnibus = new src.lista_omnibus();
+            container.add(lista_omnibus, BorderLayout.CENTER);
+        }
+        else{
+            src.listado_pasajeros lista_pasajero = new src.listado_pasajeros();
+            container.add(lista_pasajero);
+        }
+        
         container.updateUI();
     }
 

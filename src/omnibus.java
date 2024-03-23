@@ -27,7 +27,5 @@ public class omnibus extends JPanel{
 
 
         this.setVisible(true);
-        System.out.println("KHKJHKHJDASASD");
-
     }
 }
