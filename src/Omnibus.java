@@ -39,12 +39,13 @@ public class Omnibus extends JPanel{
         JLabel ldia_salida = new JLabel("Dia de salida");
         JTextField dia_salida = new JTextField(12);
 
+        JButton agregar = new JButton("Agregar");
+
         this.add(text1, BorderLayout.NORTH);
         this.add(cont1, BorderLayout.SOUTH);
 
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
-
 
         this.setVisible(true);
     }
