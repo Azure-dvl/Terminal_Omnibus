@@ -3,9 +3,9 @@ package src;
 import javax.swing.*;
 import java.awt.*;
 
-public class omnibus extends JPanel{    
+public class Omnibus extends JPanel{    
 
-    public omnibus(){
+    public Omnibus(){
         super();
         this.setLayout(new BorderLayout());
         

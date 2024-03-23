@@ -3,9 +3,9 @@ package src;
 import javax.swing.*;
 import java.awt.*;
 
-public class buscar extends JFrame{
+public class Buscar extends JPanel{
 
-    public buscar(){
+    public Buscar(){
         super();
         this.setLayout(new BorderLayout());
         

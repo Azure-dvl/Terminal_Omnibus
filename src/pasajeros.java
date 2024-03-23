@@ -3,13 +3,13 @@ package src;
 import javax.swing.*;
 import java.awt.*;
 
-public class pasajeros extends JFrame{
+public class Pasajeros extends JPanel{
     
-    public pasajeros(){
-        JPanel container = new JPanel();
-        container.setLayout(new BorderLayout());
+    public Pasajeros(){
+        super();
+        this.setLayout(new BorderLayout());
 
         JLabel text2 = new JLabel("Agregar la llegada del pasajero");
-        container.add(text2, BorderLayout.NORTH);
+        this.add(text2, BorderLayout.NORTH);
     }
 }

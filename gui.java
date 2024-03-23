@@ -98,27 +98,27 @@ public class gui implements ActionListener{
         container.removeAll();
         
         if (e.getSource()==btn_omnibus) {
-            src.omnibus bus = new src.omnibus();
+            Omnibus bus = new Omnibus();
             container.add(bus, BorderLayout.CENTER);   
         }
         else if (e.getSource()==btn_buscar) {
-            src.buscar buscar = new src.buscar();
+            Buscar buscar = new Buscar();
             container.add(buscar, BorderLayout.CENTER);
         }
         else if(e.getSource()==btn_ganancias){
-            src.ganancias ganancias = new src.ganancias();
+            Ganancias ganancias = new Ganancias();
             container.add(ganancias, BorderLayout.CENTER);
         }
         else if(e.getSource()==btn_pasajeros) {
-            src.pasajeros pasajeros = new src.pasajeros();
+            Pasajeros pasajeros = new Pasajeros();
             container.add(pasajeros, BorderLayout.CENTER);
         }
         else if(e.getSource()==btn_listado_omnibus){
-            src.lista_omnibus lista_omnibus = new src.lista_omnibus();
+            Lista_Omnibus lista_omnibus = new Lista_Omnibus();
             container.add(lista_omnibus, BorderLayout.CENTER);
         }
         else{
-            src.listado_pasajeros lista_pasajero = new src.listado_pasajeros();
+            Listado_Pasajeros lista_pasajero = new Listado_Pasajeros();
             container.add(lista_pasajero);
         }
         
