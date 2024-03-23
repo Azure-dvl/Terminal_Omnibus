@@ -6,8 +6,8 @@ import java.awt.*;
 public class omnibus extends JPanel{    
 
     public omnibus(){
-        JPanel container = new JPanel();
-        container.setLayout(new BorderLayout());
+        super();
+        this.setLayout(new BorderLayout());
         
         JLabel text1 = new JLabel("Agregar la llegada del omnibus");
         JPanel cont = new JPanel();
@@ -19,14 +19,14 @@ public class omnibus extends JPanel{
         JLabel lchapa = new JLabel("Chapa: ");
         JTextField chapa = new JTextField(12);
 
-        container.add(text1, BorderLayout.NORTH);
-        container.add(cont1, BorderLayout.SOUTH);
+        this.add(text1, BorderLayout.NORTH);
+        this.add(cont1, BorderLayout.SOUTH);
 
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
 
 
-        container.setVisible(true);
+        this.setVisible(true);
         System.out.println("KHKJHKHJDASASD");
 
     }
