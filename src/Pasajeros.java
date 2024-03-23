@@ -56,8 +56,8 @@ public class Pasajeros extends JPanel{
         // Destinos
         // cont1.add(destinos, BorderLayout.WEST);
         // cont1.add(pDestinos, BorderLayout.EAST);
-
-        cont1.add(ldia_salida, BorderLayout.WEST);
-        cont1.add(dia_salida, BorderLayout.EAST);
+        // Salida
+        // cont1.add(ldia_salida, BorderLayout.WEST);
+        // cont1.add(dia_salida, BorderLayout.EAST);
     }
 }

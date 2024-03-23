@@ -42,9 +42,13 @@ public class Omnibus extends JPanel{
         // Ocultos
         JLabel ldia_llegada = new JLabel("Dia de llegada: ");
         JTextField dia_llegada = new JTextField(12);
+        ldia_llegada.setVisible(false);
+        dia_llegada.setVisible(false);
 
         JLabel ldia_salida = new JLabel("Dia de salida");
         JTextField dia_salida = new JTextField(12);
+        ldia_salida.setVisible(false);
+        dia_salida.setVisible(false);
         
         JButton agregar = new JButton("Agregar");
 
