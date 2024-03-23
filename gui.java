@@ -1,6 +1,9 @@
+import src.omnibus;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+
 
 public class gui implements ActionListener{
 
@@ -11,7 +14,9 @@ public class gui implements ActionListener{
     private final int menu_height = 200; // Height of the menu panel
 
     // Atributes
-    JButton btn_omnibus; JButton btn_pasajeros; JButton btn_ganancias; JButton btn_listado_pasajeros; JButton btn_listado_omnibus; JButton btn_buscar; JPanel omnibus; JPanel container; JPanel pasajeros; JPanel listado_omnibus; JPanel listado_pasajeros; JPanel buscar; JPanel ganancias;
+    JButton btn_omnibus; JButton btn_pasajeros; JButton btn_ganancias; JButton btn_listado_pasajeros; JButton btn_listado_omnibus; JButton btn_buscar; JPanel container;
+
+    
 
     public void run(){
         // Window
@@ -67,38 +72,9 @@ public class gui implements ActionListener{
         btn_pasajeros.addActionListener(this);
 
 
-
         // CONTAINER
         container = new JPanel();
         container.setSize(400,100);
-
-        // Listado omnibus Panel
-        listado_omnibus = new JPanel();
-        JLabel text3 = new JLabel("Listado de omnibus");
-
-
-        listado_omnibus.add(text3, BorderLayout.NORTH);
-
-        // Listado pasajeros Panel
-        listado_pasajeros = new JPanel();
-        JLabel text4 = new JLabel("Listado de pasajeros");
-
-
-        listado_pasajeros.add(text4, BorderLayout.NORTH);
-
-        // Buscar Panel
-        buscar = new JPanel();
-        JLabel text5 = new JLabel("Busqueda de omnibus y pasajeros");
-
-
-        buscar.add(text5, BorderLayout.NORTH);
-
-        // Ganancias Panel
-        ganancias = new JPanel();
-        JLabel text6 = new JLabel("Ganancias por los onmibus y los top!");
-
-
-        ganancias.add(text6, BorderLayout.NORTH);
 
         // Add
         window.add(container, BorderLayout.CENTER);
@@ -121,23 +97,24 @@ public class gui implements ActionListener{
     public void actionPerformed(ActionEvent e){
         container.removeAll();
         if (e.getSource()==btn_omnibus) {
-            container.add(omnibus, BorderLayout.CENTER);   
+            omnibus bus = new omnibus();
+            container.add(bus, BorderLayout.CENTER);   
         }
-        else if (e.getSource()==btn_buscar) {
-            container.add(buscar, BorderLayout.CENTER);
-        }
-        else if(e.getSource()==btn_ganancias){
-            container.add(ganancias, BorderLayout.CENTER);
-        }
-        else if(e.getSource()==btn_pasajeros) {
-            container.add(pasajeros, BorderLayout.CENTER);
-        }
-        else if(e.getSource()==btn_listado_omnibus){
-            container.add(listado_omnibus, BorderLayout.CENTER);
-        }
-        else{
-            container.add(listado_pasajeros);
-        }
+        // else if (e.getSource()==btn_buscar) {
+        //     container.add(buscar, BorderLayout.CENTER);
+        // }
+        // else if(e.getSource()==btn_ganancias){
+        //     container.add(ganancias, BorderLayout.CENTER);
+        // }
+        // else if(e.getSource()==btn_pasajeros) {
+        //     container.add(pasajeros, BorderLayout.CENTER);
+        // }
+        // else if(e.getSource()==btn_listado_omnibus){
+        //     container.add(listado_omnibus, BorderLayout.CENTER);
+        // }
+        // else{
+        //     container.add(listado_pasajeros);
+        // }
         container.updateUI();
     }
 

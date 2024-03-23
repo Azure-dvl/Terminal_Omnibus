@@ -1,7 +1,9 @@
+package src;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class omnibus extends JFrame{    
+public class omnibus extends JPanel{    
 
     public omnibus(){
         JPanel container = new JPanel();
@@ -22,5 +24,10 @@ public class omnibus extends JFrame{
 
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
+
+
+        container.setVisible(true);
+        System.out.println("KHKJHKHJDASASD");
+
     }
 }
