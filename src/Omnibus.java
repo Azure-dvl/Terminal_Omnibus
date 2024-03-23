@@ -7,7 +7,7 @@ public class Omnibus extends JPanel{
 
     public Omnibus(){
         super();
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout(0,5));
         
         JLabel text1 = new JLabel("Agregar la llegada del omnibus");
         text1.setHorizontalAlignment(JLabel.CENTER);
@@ -46,9 +46,11 @@ public class Omnibus extends JPanel{
         JLabel ldia_salida = new JLabel("Dia de salida");
         JTextField dia_salida = new JTextField(12);
         
+        JButton agregar = new JButton("Agregar");
 
         this.add(text1, BorderLayout.NORTH);
-        this.add(cont1, BorderLayout.SOUTH);
+        this.add(cont1, BorderLayout.CENTER);
+        this.add(agregar, BorderLayout.SOUTH);
 
         cont1.add(ldestino, BorderLayout.WEST);
         cont1.add(destino, BorderLayout.EAST);
@@ -70,6 +72,7 @@ public class Omnibus extends JPanel{
 
         cont1.add(ldia_salida, BorderLayout.WEST);
         cont1.add(dia_salida, BorderLayout.EAST);
+        
 
         this.setVisible(true);
     }
