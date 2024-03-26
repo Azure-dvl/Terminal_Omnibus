@@ -7,7 +7,9 @@ public class Terminal_Omnibus {
 
     private String nombre;
     private String direccion;
+
     float dinero_total = 0;
+    
     List<String> viajes = new ArrayList<>();
     List<Lista_Espera> lista_espera = new ArrayList<>();
     List<Lista_Oficial> lista_oficial = new ArrayList<>();
@@ -34,10 +36,13 @@ public class Terminal_Omnibus {
         Turismo lista = new Turismo(chapa, destino, chofer, cant_asientos, km_recorridos, hora_llegada);
         lista_turismo.add(lista);
     }
-
     public void Add_ListAstro(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String dia_salida, String hora_salida){
         Astro lista = new Astro(chapa, destino, chofer, cant_asientos, km_recorridos, dia_salida, hora_salida);
         lista_astro.add(lista);
+    }
+
+    public void Recogida_Astro(){
+        
     }
 
     public abstract class Omnibus {
