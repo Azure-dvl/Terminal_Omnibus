@@ -16,9 +16,7 @@ public class AgregarOmnibus extends JPanel{
 
     public AgregarOmnibus(){
         super();
-        this.setSize(800, 500);
-
-        this.setLayout(new GridLayout(2,0));
+        this.setLayout(new BorderLayout());
 
         JPanel cont1 = new JPanel(new GridLayout(9, 2));
 
@@ -108,8 +106,6 @@ public class AgregarOmnibus extends JPanel{
             }
         });
 
-        this.add(cont1, BorderLayout.CENTER);
-        this.add(agregar, BorderLayout.SOUTH);
 
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
@@ -137,7 +133,10 @@ public class AgregarOmnibus extends JPanel{
 
         cont1.add(ldia_salida, BorderLayout.WEST);
         cont1.add(dia_salida, BorderLayout.EAST);
-        
+
+        this.add(cont1, BorderLayout.CENTER);
+        this.add(agregar, BorderLayout.SOUTH);
+
         this.setVisible(true);
     }
 

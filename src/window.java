@@ -1,6 +1,8 @@
 package src;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -20,16 +22,17 @@ public class window extends JFrame{
         // Configuracion de la ventana principal
         this.setTitle("Terminal de Omnibus");
         this.setSize(800, 500);
+        // this.setResizable(false);
         this.setDefaultCloseOperation(window.EXIT_ON_CLOSE);
-        this.setLayout(new GridLayout(2,0));
+
+        this.setLayout(new BorderLayout(2,2));
     
         // Panel de las listas
         JPanel contenedor = new JPanel();
     
         // Panel de botones
         JPanel botones = new JPanel();
-        botones.setLayout(new GridLayout(0, 4));
-        botones.setBackground(Color.lightGray);
+        botones.setLayout(new GridLayout(1, 4));
     
         btn_actualizar = new JButton("Actualizar");
         btn_actualizar.addActionListener(new ActionListener() {
@@ -74,11 +77,13 @@ public class window extends JFrame{
         buscar.add(resultado_buscar);
     
         JPanel container = new JPanel();
-        container.setLayout(new GridLayout(2,0));
+        container.setLayout(new BorderLayout());
+        
+        
         
         container.add(contenedor, BorderLayout.NORTH);
         container.add(botones, BorderLayout.SOUTH);
-        
+
         this.add(buscar, BorderLayout.NORTH);
         this.add(container, BorderLayout.CENTER);
         

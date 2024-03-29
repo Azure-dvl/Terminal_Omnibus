@@ -16,7 +16,7 @@ public class AgregarPasajero extends JPanel{
 
     public AgregarPasajero(){
         super();
-        this.setLayout(new GridLayout(2,0));
+        this.setLayout(new BorderLayout());
 
         JPanel cont1 = new JPanel(new GridLayout(4,2));
         
