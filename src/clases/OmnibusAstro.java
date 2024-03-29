@@ -1,4 +1,4 @@
-package src;
+package src.clases;
 
 public class OmnibusAstro extends Omnibus{
     private String hora_salida;

@@ -1,8 +1,6 @@
 package src;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,9 +10,10 @@ import java.awt.event.*;
 
 public class window extends JFrame{
     
-    Metodos nuevo = new Metodos();
     AgregarPasajero pasajeros = new AgregarPasajero();
     AgregarOmnibus omnibus = new AgregarOmnibus();
+    Mostrar mostrar = new Mostrar();
+    Arrancar arrancar = new Arrancar();
 
     JButton btn_omnibus; JButton btn_pasajero; JButton btn_arrancar; JButton btn_actualizar; JButton btn_filtrar; JTextField filtrar; JLabel resultado_buscar;
 
@@ -34,10 +33,12 @@ public class window extends JFrame{
         JPanel botones = new JPanel();
         botones.setLayout(new GridLayout(1, 4));
     
-        btn_actualizar = new JButton("Actualizar");
+        btn_actualizar = new JButton("Mostrar");
         btn_actualizar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                
+                contenedor.removeAll();
+                contenedor.add(mostrar);
+                contenedor.updateUI();
             }
         });
         btn_omnibus = new JButton("Agregar Omnibus");
@@ -57,6 +58,13 @@ public class window extends JFrame{
             }
         });
         btn_arrancar = new JButton("Arrancar");
+        btn_arrancar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                contenedor.removeAll();
+                contenedor.add(arrancar);
+                contenedor.updateUI();
+            }
+        });
     
         botones.add(btn_actualizar);
         botones.add(btn_omnibus);
@@ -78,9 +86,7 @@ public class window extends JFrame{
     
         JPanel container = new JPanel();
         container.setLayout(new BorderLayout());
-        
-        
-        
+
         container.add(contenedor, BorderLayout.NORTH);
         container.add(botones, BorderLayout.SOUTH);
 

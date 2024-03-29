@@ -1,8 +1,9 @@
 package src;
 
 import java.util.List;
-
 import java.util.ArrayList;
+
+import src.clases.*;
 
 /*
  * Metodos implementados
@@ -26,19 +27,23 @@ public class Metodos {
     public void Add_ListEspera(int id, String[] destinos){
         ListaEspera lista = new ListaEspera(id, destinos);
         listaespera.add(lista);
+        System.out.println("Se ha agregado un pasajero a la lista de ESPERA");
     }
     public void Add_ListOficial(int id, String dia_salida, String dia_llegada){
         ListaOficial lista = new ListaOficial(id, dia_salida, dia_llegada);
         listaoficial.add(lista);
+        System.out.println("Se ha agregado un pasajero a la lista OFICIAL");
     }
 
     public void Add_ListTurismo(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String hora_llegada){
         OmnibusTurismo lista = new OmnibusTurismo(chapa, destino, chofer, cant_asientos, km_recorridos, hora_llegada);
         turismo.add(lista);
+        System.out.println("Se ha agregado un omnibus TURISMO a la lista");
     }
     public void Add_ListAstro(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String dia_salida, String hora_salida){
         OmnibusAstro lista = new OmnibusAstro(chapa, destino, chofer, cant_asientos, km_recorridos, dia_salida, hora_salida);
         astro.add(lista);
+        System.out.println("Se ha agregado un omnibus ASTRO a la lista");
     }
     
     
@@ -114,12 +119,6 @@ public class Metodos {
         
         idos_turismo++;
         turismo.remove(num);
-    }
-
-    public void Mostrar(){
-        for(OmnibusTurismo x: turismo){
-            System.out.println(x.getChapa());
-        }
     }
     
     public float getDinero_total() {

@@ -1,4 +1,4 @@
-package src;
+package src.clases;
 
 public abstract class Omnibus {
     protected String chapa;
