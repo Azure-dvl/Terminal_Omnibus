@@ -8,15 +8,14 @@ import java.awt.event.*;
  * Ventana para agregar los pasajeros a la listas
  */
 
-public class AgregarPasajero extends JFrame{
+public class AgregarPasajero extends JPanel{
 
     Metodos nuevo = new Metodos();
     
     JTextField id; JButton agregar; JTextField destino1 ;JTextField destino2; JTextField destino3; JTextField dia_salida; JLabel ldestino; JLabel ldia_salida;JRadioButton espera; JRadioButton oficial;
 
-    public void mostrar(){
-        this.setTitle("Agregar un nuevo pasajero");
-        this.setSize(800,500);
+    public AgregarPasajero(){
+        super();
         this.setLayout(new GridLayout(2,0));
 
         JPanel cont1 = new JPanel(new GridLayout(4,2));
@@ -82,10 +81,24 @@ public class AgregarPasajero extends JFrame{
         agregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (espera.isSelected()) {
-                    
+                    try{
+                        String[] destinos = new String[3];
+                        destinos[0] = destino1.getText();
+                        destinos[1] = destino2.getText();
+                        destinos[2] = destino3.getText();
+                        nuevo.Add_ListEspera(Integer.valueOf(id.getText()), destinos);
+
+                    }catch(Exception f){
+                        System.out.println("Excepcion ==> " +f.getMessage());
+                    }
                 }
                 else if(oficial.isSelected()){
+                    try{
+                        nuevo.Add_ListOficial(Integer.valueOf(id.getText()), dia_salida.getText(), destino1.getText());
 
+                    }catch(Exception f){
+                        System.out.println("Excepcion ==> " +f.getMessage());
+                    }
                 }
                 else{System.out.println("Algo paso");}
             }

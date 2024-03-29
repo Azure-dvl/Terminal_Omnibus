@@ -115,6 +115,12 @@ public class Metodos {
         idos_turismo++;
         turismo.remove(num);
     }
+
+    public void Mostrar(){
+        for(OmnibusTurismo x: turismo){
+            System.out.println(x.getChapa());
+        }
+    }
     
     public float getDinero_total() {
         return dinero_total;

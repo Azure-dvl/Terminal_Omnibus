@@ -8,14 +8,14 @@ import java.awt.event.*;
  * Ventana para agregar los omnibus a la listas
  */
 
-public class AgregarOmnibus extends JFrame{
+public class AgregarOmnibus extends JPanel{
 
     Metodos nuevo = new Metodos();
     
     JTextField chapa; JTextField destino; JTextField chofer; JTextField asientos; JRadioButton turismo; JRadioButton astro; JTextField hora_llegada; JTextField dia_salida;JLabel ldia_salida; JLabel lhora_llegada; JLabel lhora_salida; JTextField hora_salida; JButton agregar; JTextField km;
 
-    public void mostrar(){
-        this.setTitle("Agregar un nuevo Omnibus");
+    public AgregarOmnibus(){
+        super();
         this.setSize(800, 500);
 
         this.setLayout(new GridLayout(2,0));
@@ -91,12 +91,20 @@ public class AgregarOmnibus extends JFrame{
         agregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (turismo.isSelected()) {
-                    
+                    try{
+                        nuevo.Add_ListTurismo(chapa.getText(), destino.getText(), chofer.getText(), Integer.valueOf(asientos.getText()), Integer.valueOf(km.getText()), hora_llegada.getText());
+                    }catch(Exception f){
+                        System.out.println("Excepcion ==> " +f.getMessage());
+                    }
                 }
                 else if(astro.isSelected()){
-
+                    try{
+                        nuevo.Add_ListAstro(chapa.getText(), destino.getText(), chofer.getText(), Integer.valueOf(asientos.getText()), Integer.valueOf(km.getText()), dia_salida.getText(), hora_salida.getText());
+                    }catch(Exception f){
+                        System.out.println("Excepcion ==> " +f.getMessage());
+                    }
                 }
-                else{System.out.println("Algo paso");}
+                else{System.out.println("Rellene todas las casillas");}
             }
         });
 

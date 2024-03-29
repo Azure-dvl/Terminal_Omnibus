@@ -10,17 +10,21 @@ import java.awt.event.*;
 
 public class window extends JFrame{
     
+    Metodos nuevo = new Metodos();
+    AgregarPasajero pasajeros = new AgregarPasajero();
+    AgregarOmnibus omnibus = new AgregarOmnibus();
+
     JButton btn_omnibus; JButton btn_pasajero; JButton btn_arrancar; JButton btn_actualizar; JButton btn_filtrar; JTextField filtrar; JLabel resultado_buscar;
 
     public void run(){
         // Configuracion de la ventana principal
         this.setTitle("Terminal de Omnibus");
         this.setSize(800, 500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(window.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(2,0));
     
         // Panel de las listas
-        JPanel listas = new JPanel();
+        JPanel contenedor = new JPanel();
     
         // Panel de botones
         JPanel botones = new JPanel();
@@ -28,18 +32,25 @@ public class window extends JFrame{
         botones.setBackground(Color.lightGray);
     
         btn_actualizar = new JButton("Actualizar");
+        btn_actualizar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
         btn_omnibus = new JButton("Agregar Omnibus");
         btn_omnibus.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                AgregarOmnibus omnibus = new AgregarOmnibus();
-                omnibus.mostrar();
+                contenedor.removeAll();
+                contenedor.add(omnibus);
+                contenedor.updateUI();
             } 
         });
         btn_pasajero = new JButton("Agregar Pasajero");
         btn_pasajero.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                AgregarPasajero pasajeros = new AgregarPasajero();
-                pasajeros.mostrar();
+                contenedor.removeAll();
+                contenedor.add(pasajeros);
+                contenedor.updateUI();
             }
         });
         btn_arrancar = new JButton("Arrancar");
@@ -65,8 +76,9 @@ public class window extends JFrame{
         JPanel container = new JPanel();
         container.setLayout(new GridLayout(2,0));
         
-        container.add(listas, BorderLayout.NORTH);
+        container.add(contenedor, BorderLayout.NORTH);
         container.add(botones, BorderLayout.SOUTH);
+        
         this.add(buscar, BorderLayout.NORTH);
         this.add(container, BorderLayout.CENTER);
         
