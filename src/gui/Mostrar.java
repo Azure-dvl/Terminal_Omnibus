@@ -1,23 +1,28 @@
-package src;
+package src.gui;
 
 import javax.swing.*;
+
+import src.Metodos;
+
 import java.awt.*;
 import java.awt.event.*;
 
 /*
- * Ventana para llamar al metodo arrancar
+ * Ventana para mostrar las diferentes listas
  */
 
-public class Arrancar extends JPanel{
-    
+public class Mostrar extends JPanel{
+
     Metodos nuevo = new Metodos();
 
-    public Arrancar(){
+    public Mostrar(){
         super();
         this.setLayout(new BorderLayout());
-        JLabel l = new JLabel("Esta es mi ventana Arrancar");
+
+        JLabel l = new JLabel("Esta es mi ventana Mostrar");
         this.add(l);
 
         this.setVisible(true);
     }
+    
 }

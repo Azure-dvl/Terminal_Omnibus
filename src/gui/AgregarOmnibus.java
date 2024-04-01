@@ -1,6 +1,9 @@
-package src;
+package src.gui;
 
 import javax.swing.*;
+
+import src.Metodos;
+
 import java.awt.*;
 import java.awt.event.*;
 
