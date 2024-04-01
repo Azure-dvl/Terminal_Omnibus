@@ -23,7 +23,6 @@ public class window extends JFrame{
         // Configuracion de la ventana principal
         this.setTitle("Terminal de Omnibus");
         this.setSize(800, 500);
-        // this.setResizable(false);
         this.setDefaultCloseOperation(window.EXIT_ON_CLOSE);
 
         this.setLayout(new BorderLayout(2,2));
