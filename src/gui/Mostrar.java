@@ -1,11 +1,10 @@
 package src.gui;
 
-import src.Metodos;
+import src.data.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 /*
  * Ventana para mostrar las diferentes listas
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 
 public class Mostrar extends JPanel{
 
-    Metodos nuevo = new Metodos();
+    data data = new data();
 
 
     public Mostrar(){

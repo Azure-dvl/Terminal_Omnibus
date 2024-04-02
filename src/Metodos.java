@@ -1,9 +1,11 @@
 package src;
 
+import src.clases.*;
+import src.data.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
-import src.clases.*;
 
 /*
  * Metodos implementados
@@ -17,6 +19,7 @@ public class Metodos {
     int idos_astros = 0;
     int idos_turismo = 0;
 
+
     List<Recogidos> recogidos = new ArrayList<>();
     
     List<ListaEspera> listaespera = new ArrayList<>();
@@ -24,26 +27,28 @@ public class Metodos {
     List<OmnibusAstro> astro = new ArrayList<>();
     List<OmnibusTurismo> turismo = new ArrayList<>();
 
+    data data = new data();
+
     public void Add_ListEspera(int id, String[] destinos){
         ListaEspera lista = new ListaEspera(id, destinos);
         listaespera.add(lista);
-        System.out.println("Se ha agregado un pasajero a la lista de ESPERA");
+        data.dataListEspera(listaespera);
     }
-    public void Add_ListOficial(int id, String dia_salida, String dia_llegada){
-        ListaOficial lista = new ListaOficial(id, dia_salida, dia_llegada);
+    public void Add_ListOficial(int id, String dia_salida, String destinos){
+        ListaOficial lista = new ListaOficial(id, dia_salida, destinos);
         listaoficial.add(lista);
-        System.out.println("Se ha agregado un pasajero a la lista OFICIAL");
+        data.dataListOficial(listaoficial);
     }
 
     public void Add_ListTurismo(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String hora_llegada){
         OmnibusTurismo lista = new OmnibusTurismo(chapa, destino, chofer, cant_asientos, km_recorridos, hora_llegada);
         turismo.add(lista);
-        System.out.println("Se ha agregado un omnibus TURISMO a la lista");
+        data.dataListTurismo(turismo);
     }
     public void Add_ListAstro(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String dia_salida, String hora_salida){
         OmnibusAstro lista = new OmnibusAstro(chapa, destino, chofer, cant_asientos, km_recorridos, dia_salida, hora_salida);
         astro.add(lista);
-        System.out.println("Se ha agregado un omnibus ASTRO a la lista");
+        data.dataListAstro(astro);
     }
     
     
@@ -59,6 +64,7 @@ public class Metodos {
                 if(destino==z.getDestino()){
                     Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
                     recogidos.add(v);
+                    data.dataListRecogidos(recogidos);
                     dinero_recogido+=astro.get(num).Precio();
                     int var = listaoficial.indexOf(z);
                     listaoficial.remove(var);
@@ -73,6 +79,7 @@ public class Metodos {
                     if (destino==z.getDestino()[i]) {
                         Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
                         recogidos.add(v);
+                        data.dataListRecogidos(recogidos);
                         dinero_recogido+=astro.get(num).Precio();
                         int var = listaespera.indexOf(z);
                         listaespera.remove(var);
@@ -103,6 +110,7 @@ public class Metodos {
                     if (destino==z.getDestino()[i]) {
                         Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
                         recogidos.add(v);
+                        data.dataListRecogidos(recogidos);
                         dinero_recogido+=astro.get(num).Precio();
                         int var = listaespera.indexOf(z);
                         listaespera.remove(var);
