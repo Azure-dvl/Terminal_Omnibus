@@ -152,22 +152,26 @@ public class Metodos {
         turismo.remove(num);
     }
     
-    public String MostrarTurismo(){
-        String l = "Lista de Omnibus Turismo\n";
+    public String[] MostrarTurismo(){
+        List<String> l = new ArrayList<String>();
         for(OmnibusTurismo w:turismo){
             String m= String.format("%s, %s, %s, %d, %f, %s\n", w.getChapa(), w.getDestino(), w.getChofer(), w.getAsientos(), w.getKm_recorridos(), w.getHora_llegada());
             l.concat(m);
         }
-        return l;
+        String[] result = new String[l.size()];
+        return l.toArray(result);
     }
 
     public static String MostrarAstro(){
         String l = "Lista de Omnibus Astro\n";
         for(OmnibusAstro w:astro){
-            String m = String.format("%s, %s, %s, %d, %f, %s, %s\n", w.getChapa(), w.getDestino(), w.getChofer(), w.getAsientos(), w.getKm_recorridos(), w.getDia_salida(), w.getHora_salida());
-            l.concat(m);
+            String m = String.format("%s, %s, %s, %d, %f, %s, %s", w.getChapa(), w.getDestino(), w.getChofer(), w.getAsientos(), w.getKm_recorridos(), w.getDia_salida(), w.getHora_salida());
+            l.add(m);
+            System.out.println("Astro: ".concat(m));
+            // Fijate q solo hay 1 valor en la lista, deje el print pa q veas eso
         }
-        return l;
+        String[] result = new String[l.size()];
+        return l.toArray(result);
     }
 
     public String MostrarEspera(){
