@@ -12,6 +12,8 @@ import java.awt.event.*;
 
 public class window extends JFrame{
     
+    Metodos nuevo = new Metodos();
+    
     AgregarPasajero pasajeros = new AgregarPasajero();
     AgregarOmnibus omnibus = new AgregarOmnibus();
     Mostrar mostrar = new Mostrar();
@@ -24,8 +26,14 @@ public class window extends JFrame{
         this.setTitle("Terminal de Omnibus");
         this.setSize(800, 500);
         this.setDefaultCloseOperation(window.EXIT_ON_CLOSE);
-
         this.setLayout(new BorderLayout(2,2));
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                nuevo.IniData();
+            }
+        });
     
         // Panel de las listas
         JPanel contenedor = new JPanel();

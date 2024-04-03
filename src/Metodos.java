@@ -20,14 +20,22 @@ public class Metodos {
     int idos_turismo = 0;
 
 
-    List<Recogidos> recogidos = new ArrayList<>();
+    static List<Recogidos> recogidos = new ArrayList<>();
     
-    List<ListaEspera> listaespera = new ArrayList<>();
-    List<ListaOficial> listaoficial = new ArrayList<>();
-    List<OmnibusAstro> astro = new ArrayList<>();
-    List<OmnibusTurismo> turismo = new ArrayList<>();
+    static List<ListaEspera> listaespera = new ArrayList<>();
+    static List<ListaOficial> listaoficial = new ArrayList<>();
+    static List <OmnibusAstro> astro = new ArrayList<>();
+    static List<OmnibusTurismo> turismo = new ArrayList<>();
 
     data data = new data();
+
+    public void IniData(){
+        data.datosListAstro(astro);
+        data.datosListTurismo(turismo);
+        data.datosListOficial(listaoficial);
+        data.dataListEspera(listaespera);
+        
+    }
 
     public void Add_ListEspera(int id, String[] destinos){
         ListaEspera lista = new ListaEspera(id, destinos);
@@ -50,9 +58,7 @@ public class Metodos {
         astro.add(lista);
         data.dataListAstro(astro);
     }
-    
-    
-    
+
     public void Arrancar_Astro(OmnibusAstro x){         
         int num = astro.indexOf(x);
         int dinero_recogido = 0;
@@ -129,6 +135,27 @@ public class Metodos {
         turismo.remove(num);
     }
     
+    public String MostrarTurismo(){
+        String l = "Lista de Omnibus Turismo\n";
+        for(OmnibusTurismo w:turismo){
+            l += String.format("%s, %s, %s, %d, %f, %s\n", w.getChapa(), w.getDestino(), w.getChofer(), w.getAsientos(), w.getKm_recorridos(), w.getHora_llegada());
+        }
+        return l;
+    }
+
+    public String MostrarAstro(){
+        String l = "Lista de Omnibus Astro\n";
+        for(OmnibusAstro w:astro){
+            String m = String.format("%s, %s, %s, %d, %f, %s, %s\n", w.getChapa(), w.getDestino(), w.getChofer(), w.getAsientos(), w.getKm_recorridos(), w.getDia_salida(), w.getHora_salida());
+            l.concat(m);
+        }
+        return l;
+    }
+
+    // public String MostrarEspera(){
+
+    // }
+
     public float getDinero_total() {
         return dinero_total;
     }
@@ -156,4 +183,5 @@ public class Metodos {
     public int getIdos_turismo() {
         return idos_turismo;
     }
+
 }

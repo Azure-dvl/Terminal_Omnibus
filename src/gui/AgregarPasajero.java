@@ -84,7 +84,7 @@ public class AgregarPasajero extends JPanel{
             public void actionPerformed(ActionEvent e){
                 if (espera.isSelected()) {
                     try{
-                        String[] destinos = new String[3];
+                        String[] destinos = new String[2];
                         destinos[0] = destino1.getText();
                         destinos[1] = destino2.getText();
                         destinos[2] = destino3.getText();

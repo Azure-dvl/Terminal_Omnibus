@@ -1,2 +1,2 @@
-LISTA DE OMNIBUS ASTRO
-asdasd, asdasd, asdasd, 5, 4.000000, sdh/m, dd/mm/aasd
+asdasd, asdsad, asdasd, 6, 4.000000, dd/mm/aa, h/m
+assadasdasd, asdasdsa, asdasdsad, 5, 6.000000, h/m, dd/mm/aa
