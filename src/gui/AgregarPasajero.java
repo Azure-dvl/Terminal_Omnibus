@@ -84,11 +84,11 @@ public class AgregarPasajero extends JPanel{
             public void actionPerformed(ActionEvent e){
                 if (espera.isSelected()) {
                     try{
-                        String[] destinos = new String[2];
+                        String[] destinos = new String[3];
                         destinos[0] = destino1.getText();
                         destinos[1] = destino2.getText();
                         destinos[2] = destino3.getText();
-                        nuevo.Add_ListEspera(Integer.valueOf(id.getText()), destinos);
+                        nuevo.Add_ListEspera(id.getText(), destinos);
 
                     }catch(Exception f){
                         System.out.println("Excepcion ==> " +f.getMessage());
@@ -96,7 +96,7 @@ public class AgregarPasajero extends JPanel{
                 }
                 else if(oficial.isSelected()){
                     try{
-                        nuevo.Add_ListOficial(Integer.valueOf(id.getText()), dia_salida.getText(), destino1.getText());
+                        nuevo.Add_ListOficial(id.getText(), dia_salida.getText(), destino1.getText());
 
                     }catch(Exception f){
                         System.out.println("Excepcion ==> " +f.getMessage());

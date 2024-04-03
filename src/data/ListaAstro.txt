@@ -1,2 +1,2 @@
-asdasd, asdsad, asdasd, 6, 4.000000, dd/mm/aa, h/m
-assadasdasd, asdasdsa, asdasdsad, 5, 6.000000, h/m, dd/mm/aa
+chapa52, Toronto, Diego, 6, 12.000000, dd/mm/aa, h/m
+chapa3, , , 5, 4.000000, h/m, dd/mm/aa

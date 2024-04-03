@@ -1,5 +1,9 @@
 package src.clases;
 
+/*
+ * Clase hijo que hereda de Omnibus. Con 1 variables hora de llegada. Modificando el metodo precio.
+ */
+
 public class OmnibusTurismo extends Omnibus{
 
     private String hora_llegada;
@@ -8,13 +12,8 @@ public class OmnibusTurismo extends Omnibus{
         super(chapa, destino, chofer, asientos, km_recorridos);
         this.hora_llegada = hora_llegada;
     }
-
     public String getHora_llegada() {
         return hora_llegada;
-    }
-
-    public void setHora_llegada(String hora_llegada) {
-        this.hora_llegada = hora_llegada;
     }
 
     @Override

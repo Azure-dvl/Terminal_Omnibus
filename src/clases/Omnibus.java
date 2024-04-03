@@ -1,5 +1,10 @@
 package src.clases;
 
+/*
+ * Clase Padre! Omnibus es una clase abstracta con 5 variables y un metodo. La chapa, el destino, el chofer,
+ * los asientos y los kilometros recorridos. El metodo abstracto es precio.
+ */
+
 public abstract class Omnibus {
     protected String chapa;
     protected String destino;

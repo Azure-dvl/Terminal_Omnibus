@@ -1,33 +1,27 @@
 package src.clases;
 
+/*
+ * Clase para los omnibus y los pasajerros que ya se fueron. Con 3 variables el id del pasajero, la chapa y el destino.
+ */
+
 public class Recogidos {
     
-    private int id;
+    private String id;
     private String chapa;
     private String destino;
     
-    public Recogidos(int id, String chapa, String destino) {
+    public Recogidos(String id, String chapa, String destino) {
         this.id = id;
         this.chapa = chapa;
         this.destino = destino;
     }
-
-    public int getId() {
+    public String getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
     public String getChapa() {
         return chapa;
     }
-    public void setChapa(String chapa) {
-        this.chapa = chapa;
-    }
     public String getDestino() {
         return destino;
-    }
-    public void setDestino(String destino) {
-        this.destino = destino;
     }
 }

@@ -31,13 +31,13 @@ public class data {
         String linea;
 
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            String[] elements = new String[6];
+            String[] elements = new String[7];
             if (!Vacio(dato)) {
                 while ((linea = reader.readLine()) != null){
                     elements = linea.split(", ");
+                    OmnibusAstro n = new OmnibusAstro(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5], elements[6]);
+                    x.add(n);
                 }
-                OmnibusAstro n = new OmnibusAstro(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5], elements[6]);
-                x.add(n);
             }
         }
         catch(Exception f){
@@ -50,13 +50,13 @@ public class data {
         String linea;
         
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            String[] elements = new String[5];
+            String[] elements = new String[6];
             if (!Vacio(dato)) {
                 while ((linea = reader.readLine()) != null){
                     elements = linea.split(", ");
-                }
-                OmnibusTurismo n = new OmnibusTurismo(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5]);
-                x.add(n);
+                    OmnibusTurismo n = new OmnibusTurismo(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5]);
+                    x.add(n);
+                }  
             }
         }
         catch(Exception f){
@@ -70,13 +70,13 @@ public class data {
         String linea;
 
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            String[] elements = new String[2];
+            String[] elements = new String[3];
             if (!Vacio(dato)) {
                 while ((linea = reader.readLine()) != null){
                     elements = linea.split(", ");
+                    ListaOficial n = new ListaOficial(elements[0], elements[1], elements[2]);
+                    x.add(n);
                 }
-                ListaOficial n = new ListaOficial(Integer.parseInt(elements[0]), elements[1], elements[2]);
-                x.add(n);
             }
         }
         catch(Exception f){
@@ -89,17 +89,17 @@ public class data {
         String linea;
 
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            String[] elements = new String[3];
+            String[] elements = new String[4];
             if (!Vacio(dato)) {
                 while ((linea = reader.readLine()) != null){
                     elements = linea.split(", ");
+                    String[] n = new String[3];
+                    n[0] = elements[1];
+                    n[1] = elements[2];
+                    n[2] = elements[3];
+                    ListaEspera m = new ListaEspera(elements[0], n);
+                    x.add(m);
                 }
-                String[] n = new String[2];
-                n[0]=elements[1];
-                n[1]=elements[2];
-                n[2]=elements[3];
-                ListaEspera m = new ListaEspera(Integer.parseInt(elements[0]), n);
-                x.add(m);
             }
         }
         catch(Exception f){
@@ -117,9 +117,9 @@ public class data {
             if (!Vacio(dato)) {
                 while ((linea = reader.readLine()) != null){
                     elements = linea.split(", ");
+                    Recogidos n = new Recogidos(elements[0], elements[1], elements[2]);
+                    x.add(n);
                 }
-                Recogidos n = new Recogidos(Integer.parseInt(elements[0]), elements[1], elements[2]);
-                x.add(n);
             }
         }
         catch(Exception f){
