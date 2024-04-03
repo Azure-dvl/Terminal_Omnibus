@@ -6,11 +6,12 @@ import java.io.*;
 import java.util.List;
 
 /*
- * Data para txts
+ * Manejo de los txt
  */
 
 public class data {
 
+    //Evalua si los direfentes txt estan vacios
     public boolean Vacio(String dato){
         boolean ver = false;
         
@@ -26,6 +27,9 @@ public class data {
         return ver;
     }
 
+    /*
+    * Actualiza la lista con los datos del txt al inicio del programa
+    */
     public void datosListAstro(List<OmnibusAstro> x){
         String dato = "src/data/ListaAstro.txt";
         String linea;
@@ -44,7 +48,6 @@ public class data {
             System.out.println(f);
         }   
     }
-
     public void datosListTurismo(List<OmnibusTurismo> x){
         String dato = "src/data/ListaTurismo.txt";
         String linea;
@@ -64,7 +67,6 @@ public class data {
         }
         
     }
-
     public void datosListOficial(List<ListaOficial> x){
         String dato = "src/data/ListaOficial.txt";
         String linea;
@@ -83,7 +85,6 @@ public class data {
             System.out.println(f);
         }
     }
-
     public void datosListEspera(List<ListaEspera> x){
         String dato = "src/data/ListaEspera.txt";
         String linea;
@@ -107,7 +108,6 @@ public class data {
         }
         
     }
-
     public void datosListRecogidos(List<Recogidos> x){
         String dato = "src/data/ListaRecogidos.txt";        
         String linea;
@@ -128,6 +128,9 @@ public class data {
         
     }
 
+    /*
+     * Actualiza el txt con cada dato agregado
+     */
     public void dataListAstro(List<OmnibusAstro> x){
         String dato = "src/data/ListaAstro.txt";
         
@@ -146,7 +149,6 @@ public class data {
             System.out.println(f);
         }
     }
-
     public void dataListTurismo(List<OmnibusTurismo> x){
         String dato = "src/data/ListaTurismo.txt";
         
@@ -166,7 +168,6 @@ public class data {
             System.out.println(f);
         }
     }
-
     public void dataListEspera(List<ListaEspera> x){
         String dato = "src/data/ListaEspera.txt";
         
@@ -186,7 +187,6 @@ public class data {
             System.out.println(f);
         }
     }
-
     public void dataListOficial(List<ListaOficial> x){
         String dato = "src/data/ListaOficial.txt";
         
@@ -205,7 +205,6 @@ public class data {
             System.out.println(f);
         }
     }
-
     public void dataListRecogidos(List<Recogidos> x){
         String dato = "src/data/ListaRecogidos.txt";
         

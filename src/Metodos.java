@@ -13,23 +13,28 @@ import java.util.ArrayList;
 
 public class Metodos {
     
+    /*
+     * Variables y Listas
+     */
     static float dinero_total = 0;
     static String dinero_omnibus = "";
     static float comp = 0;
     static int idos_astros = 0;
     static int idos_turismo = 0;
 
-
     static List<Recogidos> recogidos = new ArrayList<>();
-    
     static List<ListaEspera> listaespera = new ArrayList<>();
     static List<ListaOficial> listaoficial = new ArrayList<>();
     static List <OmnibusAstro> astro = new ArrayList<>();
     static List<OmnibusTurismo> turismo = new ArrayList<>();
 
-    static data data = new data();
+    data data = new data();
 
-    public static void IniData(){
+    /*
+     * Metodos!
+     */
+    public  void IniData(){
+        // Metodo para sacar los txt a las listas
         data.datosListAstro(astro);
         data.datosListTurismo(turismo);
         data.datosListOficial(listaoficial);
@@ -37,29 +42,35 @@ public class Metodos {
         data.datosListRecogidos(recogidos);
     }
 
-    public static void Add_ListEspera(String id, String[] destinos){
+    /*
+     * Metodos para Agregar a las listas
+     */
+    public void Add_ListEspera(String id, String[] destinos){
+        // Metodo para Agregar los elementos a la Lista Espera
         ListaEspera lista = new ListaEspera(id, destinos);
         listaespera.add(lista);
         data.dataListEspera(listaespera);
     }
-    public static void Add_ListOficial(String id, String dia_salida, String destinos){
+    public void Add_ListOficial(String id, String dia_salida, String destinos){
+        // Metodo para Agregar los elementos a la Lista Oficial
         ListaOficial lista = new ListaOficial(id, dia_salida, destinos);
         listaoficial.add(lista);
         data.dataListOficial(listaoficial);
     }
-
-    public static void Add_ListTurismo(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String hora_llegada){
+    public void Add_ListTurismo(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String hora_llegada){
+        // Metodo para Agregar los elementos a la Lista Omnibus Turismo
         OmnibusTurismo lista = new OmnibusTurismo(chapa, destino, chofer, cant_asientos, km_recorridos, hora_llegada);
         turismo.add(lista);
         data.dataListTurismo(turismo);
     }
-    public static void Add_ListAstro(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String dia_salida, String hora_salida){
+    public void Add_ListAstro(String chapa, String destino, String chofer, int cant_asientos, float km_recorridos, String dia_salida, String hora_salida){
+        // Metodo para Agregar los elementos a la Lista Omnibus Astro
         OmnibusAstro lista = new OmnibusAstro(chapa, destino, chofer, cant_asientos, km_recorridos, dia_salida, hora_salida);
         astro.add(lista);
         data.dataListAstro(astro);
     }
 
-    public static void Buscarchapa(String chapa){
+    public void Buscarchapa(String chapa){
         for(OmnibusAstro x: astro){
             if(x.getChapa() == chapa){
                 //Arrancar_Astro(x);
@@ -74,7 +85,7 @@ public class Metodos {
         }
     }
     
-    public static void Arrancar_Astro(OmnibusAstro x){         
+    public void Arrancar_Astro(OmnibusAstro x){         
         System.out.println("Astro");
         int num = astro.indexOf(x);
         int dinero_recogido = 0;
@@ -120,7 +131,7 @@ public class Metodos {
         idos_astros++;
         astro.remove(num);
     }
-    public static void Arrancar_Turismo(OmnibusTurismo x){
+    public void Arrancar_Turismo(OmnibusTurismo x){
         System.out.println("Turismo");
         int num = turismo.indexOf(x);
         int dinero_recogido = 0;
@@ -152,6 +163,9 @@ public class Metodos {
         turismo.remove(num);
     }
     
+    /*
+     * Metodos para Mostrar las listas en la ventana mostrar
+     */
     public String[] MostrarTurismo(){
         List<String> l = new ArrayList<String>();
         for(OmnibusTurismo w:turismo){
@@ -161,7 +175,6 @@ public class Metodos {
         String[] result = new String[l.size()];
         return l.toArray(result);
     }
-
     public String[] MostrarAstro(){
         List<String> l = new ArrayList<String>();
         for(OmnibusAstro w:astro){
@@ -198,33 +211,4 @@ public class Metodos {
         }
         return l;
     }
-
-    public float getDinero_total() {
-        return dinero_total;
-    }
-    public String getDinero_omnibus() {
-        return dinero_omnibus;
-    }
-    public List<Recogidos> getRecogidos() {
-        return recogidos;
-    }
-    public List<ListaEspera> getListaespera() {
-        return listaespera;
-    }
-    public List<ListaOficial> getListaoficial() {
-        return listaoficial;
-    }
-    public List<OmnibusAstro> getAstro() {
-        return astro;
-    }
-    public List<OmnibusTurismo> getTurismo() {
-        return turismo;
-    }
-    public int getIdos_astros() {
-        return idos_astros;
-    }
-    public int getIdos_turismo() {
-        return idos_turismo;
-    }
-
 }

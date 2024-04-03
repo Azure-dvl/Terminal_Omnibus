@@ -12,11 +12,15 @@ import java.awt.event.*;
 
 public class AgregarOmnibus extends JPanel{
 
+    // Atributos y Objetos
     Metodos nuevo = new Metodos();
     
     JTextField chapa; JTextField destino; JTextField chofer; JTextField asientos; JRadioButton turismo; JRadioButton astro; JTextField hora_llegada; JTextField dia_salida;JLabel ldia_salida; JLabel lhora_llegada; JLabel lhora_salida; JTextField hora_salida; JButton agregar; JTextField km;
 
     public AgregarOmnibus(){
+        /*
+         * Ventana y la configuracion
+         */
         super();
         this.setLayout(new BorderLayout());
 
@@ -40,38 +44,18 @@ public class AgregarOmnibus extends JPanel{
         JLabel tipo = new JLabel("Tipo: ");
         ButtonGroup buttonGroup = new ButtonGroup();
         turismo = new JRadioButton("Turismo");
-        turismo.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                if(turismo.isSelected()){
-                    lhora_llegada.setVisible(true);
-                    ldia_salida.setVisible(false);
-                    lhora_salida.setVisible(false);
-                    hora_llegada.setVisible(true);
-                    dia_salida.setVisible(false);
-                    hora_salida.setVisible(false);
-                }
-            }
-        });
         astro = new JRadioButton("Astro");
-        astro.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                if(astro.isSelected()){
-                    lhora_llegada.setVisible(false);
-                    ldia_salida.setVisible(true);
-                    lhora_salida.setVisible(true);
-                    hora_llegada.setVisible(false);
-                    dia_salida.setVisible(true);
-                    hora_salida.setVisible(true);
-                }
-            }
-        });
         buttonGroup.add(turismo);
         buttonGroup.add(astro);
         JPanel cont2 = new JPanel();
         cont2.add(turismo);
         cont2.add(astro);
 
-        // Ocultos
+        agregar = new JButton("Agregar");
+
+        /*
+         * Elementos Ocultos de la ventana
+         */
         lhora_llegada = new JLabel("hora de llegada: ");
         hora_llegada = new JTextField("h/m",12);
         ldia_salida = new JLabel("Dia de salida: ");
@@ -86,10 +70,38 @@ public class AgregarOmnibus extends JPanel{
         dia_salida.setVisible(false);
         hora_salida.setVisible(false);
 
-        
-        agregar = new JButton("Agregar");
+        /*
+         * Eventos!
+         */
+        turismo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                // Metodo para cuando se seleccione Turismo se muestren los elementos ocultos
+                if(turismo.isSelected()){
+                    lhora_llegada.setVisible(true);
+                    ldia_salida.setVisible(false);
+                    lhora_salida.setVisible(false);
+                    hora_llegada.setVisible(true);
+                    dia_salida.setVisible(false);
+                    hora_salida.setVisible(false);
+                }
+            }
+        });
+        astro.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                // Metodo para cuando se seleccione Astro se muestren los elementos ocultos
+                if(astro.isSelected()){
+                    lhora_llegada.setVisible(false);
+                    ldia_salida.setVisible(true);
+                    lhora_salida.setVisible(true);
+                    hora_llegada.setVisible(false);
+                    dia_salida.setVisible(true);
+                    hora_salida.setVisible(true);
+                }
+            }
+        });
         agregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
+                // Llamada de los diferentes metodos de Agregrar Turismo y Astro
                 if (turismo.isSelected()) {
                     try{
                         nuevo.Add_ListTurismo(chapa.getText(), destino.getText(), chofer.getText(), Integer.valueOf(asientos.getText()), Integer.valueOf(km.getText()), hora_llegada.getText());
@@ -108,7 +120,9 @@ public class AgregarOmnibus extends JPanel{
             }
         });
 
-
+        /*
+         * Agregando los elementos a la ventana
+         */
         cont1.add(lchapa, BorderLayout.WEST);
         cont1.add(chapa, BorderLayout.EAST);
 

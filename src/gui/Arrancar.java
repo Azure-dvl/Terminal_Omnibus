@@ -1,7 +1,6 @@
 package src.gui;
 
 import src.Metodos;
-import src.Metodos.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +29,6 @@ public class Arrancar extends JPanel{
             public void actionPerformed(ActionEvent e){
                 String var = chapa.getText();
                 nuevo.Buscarchapa(var);
-                System.out.println(nuevo.MostrarAstro());
             }
         });
         

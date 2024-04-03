@@ -12,11 +12,15 @@ import java.awt.event.*;
 
 public class AgregarPasajero extends JPanel{
 
+    // Atributos y Objetos
     Metodos nuevo = new Metodos();
     
     JTextField id; JButton agregar; JTextField destino1 ;JTextField destino2; JTextField destino3; JTextField dia_salida; JLabel ldestino; JLabel ldia_salida;JRadioButton espera; JRadioButton oficial;
 
     public AgregarPasajero(){
+        /*
+         * Ventana y la configuracion
+         */
         super();
         this.setLayout(new BorderLayout());
 
@@ -28,38 +32,19 @@ public class AgregarPasajero extends JPanel{
         JLabel tipo = new JLabel("Lista a ingresar: ");
         ButtonGroup buttonGroup = new ButtonGroup();
         espera = new JRadioButton("Espera");
-        espera.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                if(espera.isSelected()){
-                    ldestino.setVisible(true);
-                    destino1.setVisible(true);
-                    destino2.setVisible(true);
-                    destino3.setVisible(true);
-                    ldia_salida.setVisible(false);
-                    dia_salida.setVisible(false);
-                }
-            }
-        });
         oficial = new JRadioButton("Oficial");
-        oficial.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                if(oficial.isSelected()){
-                    ldestino.setVisible(true);
-                    destino1.setVisible(true);
-                    destino2.setVisible(false);
-                    destino3.setVisible(false);
-                    ldia_salida.setVisible(true);
-                    dia_salida.setVisible(true);
-                }
-            }  
-        });
+        
         buttonGroup.add(espera);
         buttonGroup.add(oficial);
         JPanel cont2 = new JPanel();
         cont2.add(espera);
         cont2.add(oficial);
 
-        // Ocultos
+        agregar = new JButton("Agregar");
+
+        /*
+         * Elementos Ocultos de la ventana
+         */
         ldestino = new JLabel("Destino: ");
         destino1 = new JTextField(10);
         destino2 = new JTextField(10);
@@ -79,9 +64,38 @@ public class AgregarPasajero extends JPanel{
         ldia_salida.setVisible(false);
         dia_salida.setVisible(false);
 
-        agregar = new JButton("Agregar");
+        /*
+         * Eventos!
+         */
+        espera.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                // Metodo para cuando se seleccione Espera se muestren los elementos ocultos
+                if(espera.isSelected()){
+                    ldestino.setVisible(true);
+                    destino1.setVisible(true);
+                    destino2.setVisible(true);
+                    destino3.setVisible(true);
+                    ldia_salida.setVisible(false);
+                    dia_salida.setVisible(false);
+                }
+            }
+        });
+        oficial.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                // Metodo para cuando se seleccione Oficial se muestren los elementos ocultos
+                if(oficial.isSelected()){
+                    ldestino.setVisible(true);
+                    destino1.setVisible(true);
+                    destino2.setVisible(false);
+                    destino3.setVisible(false);
+                    ldia_salida.setVisible(true);
+                    dia_salida.setVisible(true);
+                }
+            }
+        });
         agregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
+                // Llamada de los diferentes metodos de Agregrar Espera y Lista
                 if (espera.isSelected()) {
                     try{
                         String[] destinos = new String[3];
@@ -105,7 +119,10 @@ public class AgregarPasajero extends JPanel{
                 else{System.out.println("Algo paso");}
             }
         });
-        
+
+        /*
+         * Agregando los elementos a la ventana
+         */
         this.add(cont1, BorderLayout.CENTER);
         this.add(agregar, BorderLayout.SOUTH);
 
