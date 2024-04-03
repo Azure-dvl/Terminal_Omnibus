@@ -62,6 +62,9 @@ public class Mostrar extends JPanel {
 
         lastro = new JLabel("Lista de Omnibus Astro");
         lturismo = new JLabel("Lista de Omnibus Turismo");
+        lespera = new JLabel("Lista de Espera");
+        loficial = new JLabel("Lista Oficial");
+        lrecogidos = new JLabel("Lista de Pasajeros Recogidos y Omnibus Idos");
 
         btn_actualizar = new JButton("Actualizar listas");
         btn_actualizar.addActionListener(new ActionListener() {
