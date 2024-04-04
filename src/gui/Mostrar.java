@@ -66,6 +66,22 @@ public class Mostrar extends JPanel {
         loficial = new JLabel("Lista Oficial");
         lrecogidos = new JLabel("Lista de Pasajeros Recogidos y Omnibus Idos");
 
+        JPanel l_panel = new JPanel();
+        l_panel.setLayout(new BoxLayout(l_panel, BoxLayout.Y_AXIS));
+        l_panel.setBorder(BorderFactory.createTitledBorder("Labels"));
+        JLabel Label1 = new JLabel("Random Label 1");
+        JLabel Label2 = new JLabel("Random Label 2");
+        JLabel Label3 = new JLabel("Random Label 3");
+        JLabel Label4 = new JLabel("Random Label 4");
+        JLabel Label5 = new JLabel("Random Label 5");
+        l_panel.add(Label1);
+        l_panel.add(Label2);
+        l_panel.add(Label3);
+        l_panel.add(Label4);
+        l_panel.add(Label5);
+
+
+
         btn_actualizar = new JButton("Actualizar listas");
         btn_actualizar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +90,9 @@ public class Mostrar extends JPanel {
                 // esferalList.setListData(nuevo.MostrarTurismo());
                 // oficialList.setListData(nuevo.MostrarTurismo());
                 // recogidaList.setListData(nuevo.MostrarTurismo());
+                esferalList.setListData(new String[]{"aaa"});
+                oficialList.setListData(new String[]{"aaa"});
+                recogidaList.setListData(new String[]{"aaa"});
             }
         });
 
@@ -81,10 +100,23 @@ public class Mostrar extends JPanel {
         constraints.insets = new Insets(2, 2, 2, 2);
 
         addElement(lastro, 0, 0);
-        addElement(lturismo, 1, 0);
         addElement(astroList, 0, 1);
+
+        addElement(lturismo, 1, 0);
         addElement(turismoList, 1, 1);
-        addElement(btn_actualizar, 0, 2, 2);
+
+        addElement(lespera, 0, 2);
+        addElement(esferalList, 0, 3);
+
+        addElement(loficial, 1, 2);
+        addElement(oficialList, 1, 3);
+
+        addElement(lrecogidos, 0, 4, 2);
+        addElement(recogidaList, 0, 5, 2);
+        
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        addElement(btn_actualizar, 1, 6, 1);
+        addElement(l_panel, 0, 6, 1);
 
         this.setVisible(true);
     }
