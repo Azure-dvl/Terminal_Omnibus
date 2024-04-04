@@ -14,28 +14,45 @@ public class Arrancar extends JPanel{
     
     Metodos nuevo = new Metodos();
 
-    JLabel lchapa; JTextField chapa; JButton arrancar;
-
     public Arrancar(){
         super();
-        this.setLayout(new GridLayout(2,0));
+        this.setLayout(new GridLayout(3,0));
         
-        JPanel cont1 = new JPanel();
-        lchapa = new JLabel("Ingrese la chapa del omnibus que desea arrancar: ");
-        chapa = new JTextField(12);
+        JPanel cont1 = new JPanel(new GridLayout(0,2));
+
+        JLabel lastro = new JLabel("Lista de Omnubus Astro");
+        JList<String> astroList = new JList<String>();
+        JLabel lturismo = new JLabel("Lista de Omnubus Turismo");
+        JList<String> turismoList = new JList<String>();
         
-        arrancar = new JButton("Arrancar");
+        JButton arrancar = new JButton("Arrancar");
         arrancar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                String var = chapa.getText();
-                nuevo.Buscarchapa(var);
+                if(!astroList.isSelectionEmpty()){
+                    String listaa = astroList.getSelectedValue();
+                    nuevo.RecogerValora(listaa);
+                }
+                if (!turismoList.isSelectionEmpty()) {
+                    String listat = turismoList.getSelectedValue();
+                    nuevo.RecogerValort(listat);
+                }
+            }
+        });
+        JButton actualizar = new JButton("Actualizar");
+        actualizar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                astroList.setListData(nuevo.MostrarAstro());
+                turismoList.setListData(nuevo.MostrarTurismo());
             }
         });
         
-        cont1.add(lchapa, BorderLayout.EAST);
-        cont1.add(chapa, BorderLayout.WEST);
+        cont1.add(lastro);
+        cont1.add(astroList);
+        cont1.add(lturismo);
+        cont1.add(turismoList);
 
         this.add(cont1);
+        this.add(actualizar);
         this.add(arrancar);
 
         this.setVisible(true);

@@ -55,7 +55,7 @@ public class AgregarPasajero extends JPanel{
         cont3.add(destino3);
 
         ldia_salida = new JLabel("Dia de salida: ");
-        dia_salida = new JTextField("dd/mm/aa",12);
+        dia_salida = new JTextField(12);
 
         ldestino.setVisible(false);
         destino1.setVisible(false);
@@ -97,26 +97,37 @@ public class AgregarPasajero extends JPanel{
             public void actionPerformed(ActionEvent e){
                 // Llamada de los diferentes metodos de Agregrar Espera y Lista
                 if (espera.isSelected()) {
-                    try{
-                        String[] destinos = new String[3];
-                        destinos[0] = destino1.getText();
-                        destinos[1] = destino2.getText();
-                        destinos[2] = destino3.getText();
-                        nuevo.Add_ListEspera(id.getText(), destinos);
-
-                    }catch(Exception f){
-                        System.out.println("Excepcion ==> " +f.getMessage());
+                    if (id.getText()==" "||destino1.getText()==" "||destino2.getText()==null||destino3.getText()==" ") {
+                        JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
+                    }
+                    else{
+                        try{
+                            String[] destinos = new String[3];
+                            destinos[0] = destino1.getText();
+                            destinos[1] = destino2.getText();
+                            destinos[2] = destino3.getText();
+                            nuevo.Add_ListEspera(id.getText(), destinos);
+    
+                        }catch(Exception f){
+                            JOptionPane.showMessageDialog(null, "ERROR: "+f, "Alerta", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
                 }
                 else if(oficial.isSelected()){
-                    try{
-                        nuevo.Add_ListOficial(id.getText(), dia_salida.getText(), destino1.getText());
-
-                    }catch(Exception f){
-                        System.out.println("Excepcion ==> " +f.getMessage());
+                    if (id.getText()!=" "||destino1.getText()!=""||dia_salida.getText()!="") {
+                        try{
+                            nuevo.Add_ListOficial(id.getText(), dia_salida.getText(), destino1.getText());
+    
+                        }catch(Exception f){
+                            JOptionPane.showMessageDialog(null, "ERROR: "+f, "Alerta", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
+                    else{
+                        
+                        JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
+                    }    
                 }
-                else{System.out.println("Algo paso");}
+                else{JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);}
             }
         });
 

@@ -70,27 +70,34 @@ public class Metodos {
         data.dataListAstro(astro);
     }
 
-    public void Buscarchapa(String chapa){
-        for(OmnibusAstro x: astro){
-            if(x.getChapa() == chapa){
-                //Arrancar_Astro(x);
-                System.out.println("Chapa encontrada en Astro");
-            }
-        }
-        for(OmnibusTurismo x: turismo){
-            if(x.getChapa() == chapa){
-                //Arrancar_Turismo(x);
-                System.out.println("Chapa encontrada en Turismo");
-            }
-        }
+    /*
+     * Metodos para recoger la cadena del JList y convertirla en el objeto que pasaremos por parametro al metodo arrancar
+     */
+    public void RecogerValora(String lista){
+        String[] elements = new String[7];
+        elements = lista.split(", ");
+        OmnibusAstro n = new OmnibusAstro(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5], elements[6]);
+        Arrancar_Astro(n);
+    }
+    public void RecogerValort(String lista){
+        String[] elements = new String[6];
+        elements = lista.split(", ");
+        OmnibusTurismo n = new OmnibusTurismo(elements[0], elements[1], elements[2], Integer.parseInt(elements[3]), Float.parseFloat(elements[4]), elements[5]);
+        Arrancar_Turismo(n);
     }
     
+    /*
+     * Metodos para arrancar los diferentes Omnibus
+     */
     public void Arrancar_Astro(OmnibusAstro x){         
-        System.out.println("Astro");
         int num = astro.indexOf(x);
         int dinero_recogido = 0;
+        System.out.println(num);
         int asientos = astro.get(num).getAsientos();
+        System.out.println("LALALa");
         String destino = astro.get(num).getDestino();
+        System.out.println("LALALa");
+        System.out.println(String.format("%d, %d, %d, %s", num, dinero_recogido, asientos, destino));
         
         for(ListaOficial z : listaoficial){
             if(asientos>0){

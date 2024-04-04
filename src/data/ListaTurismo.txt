@@ -1,4 +1,1 @@
-chapa20, Francia, Fabio, 3, 2.000000, h/ms
-chapa4, , , 5, 6.000000, h/m
-chapaturismo, Francia, Camilo, 6, 4.000000, 8:25
-chapa3, Guinea, Danilo, 6, 4.000000, h/m
+chapa1, Canada, Daniel, 10, 12.000000, 5.06
