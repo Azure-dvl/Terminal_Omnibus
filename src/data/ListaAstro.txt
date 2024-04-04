@@ -1,2 +1,1 @@
-chapa2, Guinea, Danilo, 10, 12.000000, 6:20, 5/6/2024
-chapa3, Caracas, Alfin, 6, 8.000000, 6:40, 5/2/2024
+chapa11, Canada, Daniel, 6, 1.000000, 6:54, 2/12/2024

@@ -16,7 +16,7 @@ public class data {
         boolean ver = false;
         
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            if(reader.readLine()==null){
+            if(reader.readLine()==" "){
                 ver = true;
             }else{
                 ver = false;
@@ -139,9 +139,9 @@ public class data {
                 String c = String.format("%s, %s, %s, %d, %f, %s, %s", z.getChapa(), z.getDestino(), z.getChofer(), z.getAsientos(), z.getKm_recorridos(), z.getDia_salida(), z.getHora_salida());
                 if (Vacio(dato)) {
                     writer.write(c);
-                    writer.newLine();
                 }else{
                     writer.write(c);
+                    writer.newLine();
                 }       
             }
             writer.close();

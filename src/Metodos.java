@@ -17,10 +17,11 @@ public class Metodos {
      * Variables y Listas
      */
     static float dinero_total = 0;
-    static String dinero_omnibus = "";
+    static String dinero_omnibus = "No se ha ingresado nada";
     static float comp = 0;
     static int idos_astros = 0;
     static int idos_turismo = 0;
+
 
     static List<Recogidos> recogidos = new ArrayList<>();
     static List<ListaEspera> listaespera = new ArrayList<>();
@@ -192,31 +193,50 @@ public class Metodos {
         String[] result = new String[l.size()];
         return l.toArray(result);
     }
-
-    public String MostrarEspera(){
-        String l = "Lista de Espera\n";
+    public String[] MostrarEspera(){
+        List<String> l = new ArrayList<String>();
         for(ListaEspera w:listaespera){
             String m = String.format("%s, %s, %s, %s\n", w.getId(), w.getDestino()[0], w.getDestino()[1], w.getDestino()[2]);
-            l.concat(m);
+            l.add(m);
         }
-        return l;
+        String[] result = new String[l.size()];
+        return l.toArray(result);
     }
-
-    public String MostrarOficial(){
-        String l = "Lista de Oficial\n";
+    public String[] MostrarOficial(){
+        List<String> l = new ArrayList<String>();
         for(ListaOficial w:listaoficial){
             String m = String.format("%s, %s, %s\n", w.getId(), w.getDia_salida(), w.getDestino());
-            l.concat(m);
+            l.add(m);
         }
-        return l;
+        String[] result = new String[l.size()];
+        return l.toArray(result);
     }
-
-    public String MostrarRecogidos(){
-        String l = "Lista de Recogidos\n";
+    public String[] MostrarRecogidos(){
+        List<String> l = new ArrayList<String>();
         for(Recogidos w:recogidos){
             String m = String.format("%s, %s, %s\n", w.getId(), w.getChapa(), w.getDestino());
-            l.concat(m);
+            l.add(m);
         }
-        return l;
+        String[] result = new String[l.size()];
+        return l.toArray(result);
+    }
+
+    /*
+     * Get de los metodos
+     */
+    public float getDinero_total() {
+        return dinero_total;
+    }
+    public String getDinero_omnibus() {
+        return dinero_omnibus;
+    }
+    public float getComp() {
+        return comp;
+    }
+    public int getIdos_astros() {
+        return idos_astros;
+    }
+    public int getIdos_turismo() {
+        return idos_turismo;
     }
 }

@@ -68,31 +68,35 @@ public class Mostrar extends JPanel {
 
         JPanel l_panel = new JPanel();
         l_panel.setLayout(new BoxLayout(l_panel, BoxLayout.Y_AXIS));
-        l_panel.setBorder(BorderFactory.createTitledBorder("Labels"));
-        JLabel Label1 = new JLabel("Random Label 1");
-        JLabel Label2 = new JLabel("Random Label 2");
-        JLabel Label3 = new JLabel("Random Label 3");
-        JLabel Label4 = new JLabel("Random Label 4");
-        JLabel Label5 = new JLabel("Random Label 5");
-        l_panel.add(Label1);
-        l_panel.add(Label2);
-        l_panel.add(Label3);
-        l_panel.add(Label4);
-        l_panel.add(Label5);
+        l_panel.setBorder(BorderFactory.createTitledBorder("Ranking!"));
+        JLabel dinertotal = new JLabel("");
+        JLabel destinotop = new JLabel("");
+        JLabel omnibutop = new JLabel("");
+        JLabel astroido = new JLabel("");
+        JLabel turismoido = new JLabel("");
+        l_panel.add(dinertotal);
+        l_panel.add(destinotop);
+        l_panel.add(omnibutop);
+        l_panel.add(astroido);
+        l_panel.add(turismoido);
 
 
 
-        btn_actualizar = new JButton("Actualizar listas");
+        btn_actualizar = new JButton("Actualizar valores");
         btn_actualizar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 astroList.setListData(nuevo.MostrarAstro());
                 turismoList.setListData(nuevo.MostrarTurismo());
-                // esferalList.setListData(nuevo.MostrarTurismo());
-                // oficialList.setListData(nuevo.MostrarTurismo());
-                // recogidaList.setListData(nuevo.MostrarTurismo());
-                esferalList.setListData(new String[]{"aaa"});
-                oficialList.setListData(new String[]{"aaa"});
-                recogidaList.setListData(new String[]{"aaa"});
+                esferalList.setListData(nuevo.MostrarEspera());
+                oficialList.setListData(nuevo.MostrarOficial());
+                recogidaList.setListData(nuevo.MostrarRecogidos());
+                
+                // Labels
+                dinertotal.setText("Dinero Recuadado: "+nuevo.getDinero_total());
+                omnibutop.setText("Omnibus que mas dinero recaudado: "+nuevo.getDinero_omnibus());
+                astroido.setText("Cantidad de Omnibus Astro idos: "+nuevo.getIdos_astros());
+                turismoido.setText("Cantidad de Omnibus Turismo ido: "+nuevo.getIdos_turismo());
+
             }
         });
 

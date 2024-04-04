@@ -1,1 +1,1 @@
-chapa1, Canada, Daniel, 10, 12.000000, 5.06
+chapa1, Canada, Daniel, 10, 12.000000, 5.06, , , 6, 5.000000, 
