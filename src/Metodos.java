@@ -90,53 +90,54 @@ public class Metodos {
      * Metodos para arrancar los diferentes Omnibus
      */
     public void Arrancar_Astro(OmnibusAstro x){         
-        int num = astro.indexOf(x);
-        int dinero_recogido = 0;
-        System.out.println(num);
-        int asientos = astro.get(num).getAsientos();
-        System.out.println("LALALa");
-        String destino = astro.get(num).getDestino();
-        System.out.println("LALALa");
-        System.out.println(String.format("%d, %d, %d, %s", num, dinero_recogido, asientos, destino));
-        
-        for(ListaOficial z : listaoficial){
-            if(asientos>0){
-                if(destino==z.getDestino()){
-                    Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
-                    recogidos.add(v);
-                    data.dataListRecogidos(recogidos);
-                    dinero_recogido+=astro.get(num).Precio();
-                    int var = listaoficial.indexOf(z);
-                    listaoficial.remove(var);
-                    asientos--;
+        for(OmnibusAstro w: astro){
+            if(w.getChapa().equals(x.getChapa())){
+                int dinero_recogido = 0;
+                int asientos = w.getAsientos();
+                String destino = w.getDestino();
+                for(ListaOficial z : listaoficial){
+                    if(asientos>0){
+                        if(destino.equals(z.getDestino())){
+                            System.out.println(z.getDestino());
+                            Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
+                            recogidos.add(v);
+                            data.dataListRecogidos(recogidos);
+                            dinero_recogido+=w.Precio();
+                            int var = listaoficial.indexOf(z);
+                            System.out.println(var);
+                            listaoficial.remove(var);
+                            asientos--;
+                        }
+                    }else{break;}
                 }
-            }else{break;}
-        }
-
-        for(ListaEspera z : listaespera){
-            if (asientos>0) {
-                for(int i = 0; i<z.getDestino().length;i++){
-                    if (destino==z.getDestino()[i]) {
-                        Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
-                        recogidos.add(v);
-                        data.dataListRecogidos(recogidos);
-                        dinero_recogido+=astro.get(num).Precio();
-                        int var = listaespera.indexOf(z);
-                        listaespera.remove(var);
-                        asientos--;
-                    }
+        
+                for(ListaEspera z : listaespera){
+                    if (asientos>0) {
+                        for(int i = 0; i<z.getDestino().length;i++){
+                            if (destino.equals(z.getDestino()[i])) {
+                                Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
+                                recogidos.add(v);
+                                data.dataListRecogidos(recogidos);
+                                dinero_recogido+=w.Precio();
+                                int var = listaespera.indexOf(z);
+                                listaespera.remove(var);
+                                asientos--;
+                            }
+                        }
+                    }else{break;}
                 }
-            }else{break;}
+                
+                if (dinero_recogido >= comp) {
+                    comp=dinero_recogido;
+                    dinero_omnibus=w.getChapa();
+                }
+                
+                dinero_total+=dinero_recogido;
+                idos_astros++;
+                astro.remove(w);
+            }
         }
         
-        if (dinero_recogido >= comp) {
-            comp=dinero_recogido;
-            dinero_omnibus=astro.get(num).getChapa();
-        }
-        
-        dinero_total+=dinero_recogido;
-        idos_astros++;
-        astro.remove(num);
     }
     public void Arrancar_Turismo(OmnibusTurismo x){
         System.out.println("Turismo");
