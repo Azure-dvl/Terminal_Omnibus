@@ -5,6 +5,7 @@ import src.data.*;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /*
@@ -89,32 +90,35 @@ public class Metodos {
     /*
      * Metodos para arrancar los diferentes Omnibus
      */
-    public void Arrancar_Astro(OmnibusAstro x){         
-        for(OmnibusAstro w: astro){
+    public void Arrancar_Astro(OmnibusAstro x){      
+        for(int i = 0; i < astro.size(); i++){
+            OmnibusAstro w = astro.get(i);
             if(w.getChapa().equals(x.getChapa())){
                 int dinero_recogido = 0;
                 int asientos = w.getAsientos();
                 String destino = w.getDestino();
-                for(ListaOficial z : listaoficial){
+                for(int it2 = 0; it2 < listaoficial.size(); it2++){
+                    ListaOficial z = listaoficial.get(it2);
                     if(asientos>0){
                         if(destino.equals(z.getDestino())){
-                            System.out.println(z.getDestino());
+                            // System.out.println(z.getDestino());
                             Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
                             recogidos.add(v);
                             data.dataListRecogidos(recogidos);
                             dinero_recogido+=w.Precio();
                             int var = listaoficial.indexOf(z);
-                            System.out.println(var);
+                            // System.out.println(var);
                             listaoficial.remove(var);
                             asientos--;
                         }
                     }else{break;}
                 }
         
-                for(ListaEspera z : listaespera){
+                for(int it2 = 0; it2 < listaespera.size(); it2++){
+                    ListaEspera z = listaespera.get(it2);
                     if (asientos>0) {
-                        for(int i = 0; i<z.getDestino().length;i++){
-                            if (destino.equals(z.getDestino()[i])) {
+                        for(int i2 = 0; i2<z.getDestino().length;i2++){
+                            if (destino.equals(z.getDestino()[i2])) {
                                 Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
                                 recogidos.add(v);
                                 data.dataListRecogidos(recogidos);
