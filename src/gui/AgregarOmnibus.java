@@ -14,8 +14,6 @@ public class AgregarOmnibus extends JPanel{
 
     // Atributos y Objetos
     Metodos nuevo = new Metodos();
-    
-    JTextField chapa; JTextField destino; JTextField chofer; JTextField asientos; JRadioButton turismo; JRadioButton astro; JTextField hora_llegada; JTextField dia_salida;JLabel ldia_salida; JLabel lhora_llegada; JLabel lhora_salida; JTextField hora_salida; JButton agregar; JTextField km;
 
     public AgregarOmnibus(){
         /*
@@ -27,41 +25,41 @@ public class AgregarOmnibus extends JPanel{
         JPanel cont1 = new JPanel(new GridLayout(9, 2));
 
         JLabel lchapa = new JLabel("Chapa: ");
-        chapa = new JTextField(12);
+        JTextField chapa = new JTextField(12);
 
         JLabel ldestino = new JLabel("Destino: ");
-        destino = new JTextField(12);
+        JTextField destino = new JTextField(12);
 
         JLabel lchofer = new JLabel("Chofer: ");
-        chofer = new JTextField(12);
+        JTextField chofer = new JTextField(12);
 
         JLabel lasientos = new JLabel("Cantidad de asientos: ");
-        asientos = new JTextField(5);
+        JTextField asientos = new JTextField(5);
 
         JLabel lkm = new JLabel("Km de distancia: ");
-        km = new JTextField(5);
+        JTextField km = new JTextField(5);
 
         JLabel tipo = new JLabel("Tipo: ");
         ButtonGroup buttonGroup = new ButtonGroup();
-        turismo = new JRadioButton("Turismo");
-        astro = new JRadioButton("Astro");
+        JRadioButton turismo = new JRadioButton("Turismo");
+        JRadioButton astro = new JRadioButton("Astro");
         buttonGroup.add(turismo);
         buttonGroup.add(astro);
         JPanel cont2 = new JPanel();
         cont2.add(turismo);
         cont2.add(astro);
 
-        agregar = new JButton("Agregar");
+        JButton agregar = new JButton("Agregar");
 
         /*
          * Elementos Ocultos de la ventana
          */
-        lhora_llegada = new JLabel("hora de llegada: ");
-        hora_llegada = new JTextField(12);
-        ldia_salida = new JLabel("Dia de salida: ");
-        dia_salida = new JTextField(12);
-        lhora_salida = new JLabel("Hora de salida: ");
-        hora_salida = new JTextField(12);
+        JLabel lhora_llegada = new JLabel("hora de llegada: ");
+        JTextField hora_llegada = new JTextField(12);
+        JLabel ldia_salida = new JLabel("Dia de salida: ");
+        JTextField dia_salida = new JTextField(12);
+        JLabel lhora_salida = new JLabel("Hora de salida: ");
+        JTextField hora_salida = new JTextField(12);
 
         lhora_llegada.setVisible(false);
         ldia_salida.setVisible(false);

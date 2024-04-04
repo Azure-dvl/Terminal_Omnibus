@@ -16,7 +16,7 @@ public class data {
         boolean ver = false;
         
         try(BufferedReader reader = new BufferedReader(new FileReader(dato))){
-            if(reader.readLine()==" "){
+            if(reader.readLine()==null){
                 ver = true;
             }else{
                 ver = false;

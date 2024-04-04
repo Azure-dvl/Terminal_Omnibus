@@ -26,6 +26,11 @@ public class Arrancar extends JPanel{
         JList<String> turismoList = new JList<String>();
         
         JButton arrancar = new JButton("Arrancar");
+        JButton actualizar = new JButton("Actualizar");
+        
+        /*
+         * Eventos!
+         */
         arrancar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if(!astroList.isSelectionEmpty()){
@@ -38,14 +43,16 @@ public class Arrancar extends JPanel{
                 }
             }
         });
-        JButton actualizar = new JButton("Actualizar");
         actualizar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 astroList.setListData(nuevo.MostrarAstro());
                 turismoList.setListData(nuevo.MostrarTurismo());
             }
         });
-        
+
+        /*
+         * Agregando los elementos a la ventana
+         */
         cont1.add(lastro);
         cont1.add(astroList);
         cont1.add(lturismo);

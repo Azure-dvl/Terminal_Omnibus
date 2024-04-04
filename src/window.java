@@ -20,7 +20,6 @@ public class window extends JFrame{
     Mostrar mostrar = new Mostrar();
     Arrancar arrancar = new Arrancar();
 
-    JButton btn_omnibus; JButton btn_pasajero; JButton btn_arrancar; JButton btn_actualizar; JButton btn_filtrar; JTextField filtrar; JLabel resultado_buscar;
 
     public void run(){
         /*
@@ -36,10 +35,10 @@ public class window extends JFrame{
         JPanel botones = new JPanel();
         botones.setLayout(new GridLayout(1, 4));
     
-        btn_actualizar = new JButton("Mostrar");
-        btn_omnibus = new JButton("Agregar Omnibus");
-        btn_pasajero = new JButton("Agregar Pasajero");
-        btn_arrancar = new JButton("Arrancar");
+        JButton btn_actualizar = new JButton("Mostrar");
+        JButton btn_omnibus = new JButton("Agregar Omnibus");
+        JButton btn_pasajero = new JButton("Agregar Pasajero");
+        JButton btn_arrancar = new JButton("Arrancar");
 
         botones.add(btn_actualizar);
         botones.add(btn_omnibus);
@@ -47,16 +46,18 @@ public class window extends JFrame{
         botones.add(btn_arrancar);
     
         JPanel buscar = new JPanel();
-        buscar.setLayout(new GridLayout(2,2));
+        buscar.setLayout(new GridLayout(3,2));
           
-        filtrar = new JTextField(10);
-        btn_filtrar = new JButton("Filtrar");
-        resultado_buscar = new JLabel("El resultado de la busqueda aparece aqui. Para buscar por fecha el formato es d/m/a");
+        JTextField filtrar = new JTextField(10);
+        JButton btn_filtrar = new JButton("Filtrar");
+        JLabel resultado_buscar = new JLabel("Resultado de la busqueda: ");
         resultado_buscar.setForeground(Color.LIGHT_GRAY);
+        JList<String> resultado = new JList<String>();
 
         buscar.add(filtrar);
         buscar.add(btn_filtrar);
         buscar.add(resultado_buscar);
+        buscar.add(resultado);
     
         JPanel container = new JPanel();
         container.setLayout(new BorderLayout());
@@ -101,6 +102,12 @@ public class window extends JFrame{
                 contenedor.removeAll();
                 contenedor.add(arrancar);
                 contenedor.updateUI();
+            }
+        });
+        btn_filtrar.addActionListener(new ActionListener() {
+            // Evento para la llamada del metodo Filtrar
+            public void actionPerformed(ActionEvent e){
+                resultado.setListData(nuevo.Filtrar(filtrar.getText()));
             }
         });
     

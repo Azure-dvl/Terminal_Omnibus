@@ -5,7 +5,6 @@ import src.data.*;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 /*
@@ -92,9 +91,11 @@ public class Metodos {
      * Metodos para arrancar los diferentes Omnibus
      */
     public void Arrancar_Astro(OmnibusAstro x){      
+        int num = 0;
         for(int i = 0; i < astro.size(); i++){
             OmnibusAstro w = astro.get(i);
             if(w.getChapa().equals(x.getChapa())){
+                num = i;
                 int dinero_recogido = 0;
                 int asientos = w.getAsientos();
                 String destino = w.getDestino();
@@ -102,19 +103,18 @@ public class Metodos {
                     ListaOficial z = listaoficial.get(it2);
                     if(asientos>0){
                         if(destino.equals(z.getDestino())){
-                            // System.out.println(z.getDestino());
                             Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
                             recogidos.add(v);
                             data.dataListRecogidos(recogidos);
                             dinero_recogido+=w.Precio();
                             int var = listaoficial.indexOf(z);
-                            // System.out.println(var);
                             listaoficial.remove(var);
+                            data.dataListOficial(listaoficial);
                             asientos--;
                         }
                     }else{break;}
                 }
-        
+
                 for(int it2 = 0; it2 < listaespera.size(); it2++){
                     ListaEspera z = listaespera.get(it2);
                     if (asientos>0) {
@@ -126,6 +126,7 @@ public class Metodos {
                                 dinero_recogido+=w.Precio();
                                 int var = listaespera.indexOf(z);
                                 listaespera.remove(var);
+                                data.dataListEspera(listaespera);
                                 asientos--;
                             }
                         }
@@ -136,44 +137,53 @@ public class Metodos {
                     comp=dinero_recogido;
                     dinero_omnibus=w.getChapa();
                 }
-                
                 dinero_total+=dinero_recogido;
-                idos_astros++;
-                astro.remove(w);
+                
             }
         }
+        idos_astros++;
+        astro.remove(num);
+        data.dataListAstro(astro);
         
     }
     public void Arrancar_Turismo(OmnibusTurismo x){
-        System.out.println("Turismo");
-        int num = turismo.indexOf(x);
-        int dinero_recogido = 0;
-        int asientos = astro.get(num).getAsientos();
-        String destino = astro.get(num).getDestino();
+        int num = 0;
+        for(int i=0; i<turismo.size();i++){
+            OmnibusTurismo w = turismo.get(i);
+            if(w.getChapa().equals(x.getChapa())){
+                num = i;
+                int dinero_recogido = 0;
+                int asientos = w.getAsientos();
+                String destino = w.getDestino();
 
-        for(ListaEspera z : listaespera){
-            if (asientos>0) {
-                for(int i = 0; i<z.getDestino().length;i++){
-                    if (destino==z.getDestino()[i]) {
-                        Recogidos v = new Recogidos(z.getId(), astro.get(num).getChapa(), destino);
-                        recogidos.add(v);
-                        data.dataListRecogidos(recogidos);
-                        dinero_recogido+=astro.get(num).Precio();
-                        int var = listaespera.indexOf(z);
-                        listaespera.remove(var);
-                        asientos--;
-                    }
+                for(int it2 = 0; it2<listaespera.size();it2++){
+                    ListaEspera z = listaespera.get(it2);
+                    if (asientos>0) {
+                        for(int i2 = 0; i2<z.getDestino().length;i2++){
+                            if (destino.equals(z.getDestino()[i2])) {
+                                Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
+                                recogidos.add(v);
+                                data.dataListRecogidos(recogidos);
+                                dinero_recogido+=w.Precio();
+                                int var = listaespera.indexOf(z);
+                                listaespera.remove(var);
+                                data.dataListEspera(listaespera);
+                                asientos--;
+                            }
+                        }
+                    }else{break;}
                 }
-            }else{break;}
+                if (dinero_recogido >= comp) {
+                    comp=dinero_recogido;
+                    dinero_omnibus=w.getChapa();
+                }
+                dinero_total+=dinero_recogido;
+            }
+            
         }
-        
-        if (dinero_recogido >= comp) {
-            comp=dinero_recogido;
-            dinero_omnibus=turismo.get(num).getChapa();
-        }
-        
         idos_turismo++;
         turismo.remove(num);
+        data.dataListTurismo(turismo);
     }
     
     /*
@@ -220,6 +230,33 @@ public class Metodos {
         for(Recogidos w:recogidos){
             String m = String.format("%s, %s, %s\n", w.getId(), w.getChapa(), w.getDestino());
             l.add(m);
+        }
+        String[] result = new String[l.size()];
+        return l.toArray(result);
+    }
+
+    /*
+     * Metodo Filtrar
+     */
+    public String[] Filtrar(String buscar){
+        List<String> l = new ArrayList<String>();
+        for(int i = 0; i < recogidos.size();i++){
+            if (recogidos.get(i).getId().equals(buscar)) {
+                String x = "Ese pasajero se fue en la guaga "+recogidos.get(i).getChapa();
+                l.add(x);
+            }
+        }
+        for(int i = 0;i<astro.size();i++){
+            if(astro.get(i).getDestino().equals(buscar)){
+                String x = String.format("%s, %s, %s, %d, %.2f, %s, %s", astro.get(i).getChapa(), astro.get(i).getDestino(), astro.get(i).getChofer(), astro.get(i).getAsientos(), astro.get(i).getKm_recorridos(), astro.get(i).getDia_salida(), astro.get(i).getHora_salida());
+                l.add(x);
+            }
+        }
+        for(int i = 0;i<turismo.size();i++){
+            if(turismo.get(i).getDestino().equals(buscar)){
+                String x= String.format("%s, %s, %s, %d, %.2f, %s\n", turismo.get(i).getChapa(), turismo.get(i).getDestino(), turismo.get(i).getChofer(), turismo.get(i).getAsientos(), turismo.get(i).getKm_recorridos(), turismo.get(i).getHora_llegada());
+                l.add(x);
+            }
         }
         String[] result = new String[l.size()];
         return l.toArray(result);

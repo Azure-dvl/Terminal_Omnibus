@@ -14,8 +14,6 @@ public class AgregarPasajero extends JPanel{
 
     // Atributos y Objetos
     Metodos nuevo = new Metodos();
-    
-    JTextField id; JButton agregar; JTextField destino1 ;JTextField destino2; JTextField destino3; JTextField dia_salida; JLabel ldestino; JLabel ldia_salida;JRadioButton espera; JRadioButton oficial;
 
     public AgregarPasajero(){
         /*
@@ -27,12 +25,12 @@ public class AgregarPasajero extends JPanel{
         JPanel cont1 = new JPanel(new GridLayout(4,2));
         
         JLabel lid = new JLabel("ID: ");
-        id = new JTextField(12);
+        JTextField id = new JTextField(12);
 
         JLabel tipo = new JLabel("Lista a ingresar: ");
         ButtonGroup buttonGroup = new ButtonGroup();
-        espera = new JRadioButton("Espera");
-        oficial = new JRadioButton("Oficial");
+        JRadioButton espera = new JRadioButton("Espera");
+        JRadioButton oficial = new JRadioButton("Oficial");
         
         buttonGroup.add(espera);
         buttonGroup.add(oficial);
@@ -40,22 +38,22 @@ public class AgregarPasajero extends JPanel{
         cont2.add(espera);
         cont2.add(oficial);
 
-        agregar = new JButton("Agregar");
+        JButton agregar = new JButton("Agregar");
 
         /*
          * Elementos Ocultos de la ventana
          */
-        ldestino = new JLabel("Destino: ");
-        destino1 = new JTextField(10);
-        destino2 = new JTextField(10);
-        destino3 = new JTextField(10);
+        JLabel ldestino = new JLabel("Destino: ");
+        JTextField destino1 = new JTextField(10);
+        JTextField destino2 = new JTextField(10);
+        JTextField destino3 = new JTextField(10);
         JPanel cont3 = new JPanel();
         cont3.add(destino1);
         cont3.add(destino2);
         cont3.add(destino3);
 
-        ldia_salida = new JLabel("Dia de salida: ");
-        dia_salida = new JTextField(12);
+        JLabel ldia_salida = new JLabel("Dia de salida: ");
+        JTextField dia_salida = new JTextField(12);
 
         ldestino.setVisible(false);
         destino1.setVisible(false);

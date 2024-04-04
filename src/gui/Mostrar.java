@@ -13,12 +13,6 @@ import java.awt.event.*;
 public class Mostrar extends JPanel {
 
     Metodos nuevo = new Metodos();
-    JLabel lastro;
-    JLabel lturismo;
-    JLabel lrecogidos;
-    JLabel lespera;
-    JLabel loficial;
-    JButton btn_actualizar;
     GridBagLayout layout;
     GridBagConstraints constraints;
 
@@ -53,18 +47,17 @@ public class Mostrar extends JPanel {
         this.constraints = new GridBagConstraints();
         this.setLayout(layout);
 
-        // Las casillas de las listas se agregan cuando se pone un valor
         JList<String> astroList = new JList<String>();
         JList<String> turismoList = new JList<String>();
         JList<String> esferalList = new JList<String>();
         JList<String> oficialList = new JList<String>();
         JList<String> recogidaList = new JList<String>();
 
-        lastro = new JLabel("Lista de Omnibus Astro");
-        lturismo = new JLabel("Lista de Omnibus Turismo");
-        lespera = new JLabel("Lista de Espera");
-        loficial = new JLabel("Lista Oficial");
-        lrecogidos = new JLabel("Lista de Pasajeros Recogidos y Omnibus Idos");
+        JLabel lastro = new JLabel("Lista de Omnibus Astro");
+        JLabel lturismo = new JLabel("Lista de Omnibus Turismo");
+        JLabel lespera = new JLabel("Lista de Espera");
+        JLabel loficial = new JLabel("Lista Oficial");
+        JLabel lrecogidos = new JLabel("Lista de Pasajeros Recogidos y Omnibus Idos");
 
         JPanel l_panel = new JPanel();
         l_panel.setLayout(new BoxLayout(l_panel, BoxLayout.Y_AXIS));
@@ -80,9 +73,11 @@ public class Mostrar extends JPanel {
         l_panel.add(astroido);
         l_panel.add(turismoido);
 
+        JButton btn_actualizar = new JButton("Actualizar valores");
 
-
-        btn_actualizar = new JButton("Actualizar valores");
+        /*
+         * Events!
+         */
         btn_actualizar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 astroList.setListData(nuevo.MostrarAstro());
@@ -103,6 +98,9 @@ public class Mostrar extends JPanel {
         constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(2, 2, 2, 2);
 
+        /*
+         * Agregando los elementos a la ventana
+         */
         addElement(lastro, 0, 0);
         addElement(astroList, 0, 1);
 
