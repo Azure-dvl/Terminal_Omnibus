@@ -99,8 +99,8 @@ public class Metodos {
                 int dinero_recogido = 0;
                 int asientos = w.getAsientos();
                 String destino = w.getDestino();
-                for(int it2 = 0; it2 < listaoficial.size(); it2++){
-                    ListaOficial z = listaoficial.get(it2);
+                for(int f = 0; f < listaoficial.size(); f++){
+                    ListaOficial z = listaoficial.get(f);
                     if(asientos>0){
                         if(destino.equals(z.getDestino())){
                             Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
@@ -115,11 +115,11 @@ public class Metodos {
                     }else{break;}
                 }
 
-                for(int it2 = 0; it2 < listaespera.size(); it2++){
-                    ListaEspera z = listaespera.get(it2);
+                for(int f = 0; f < listaespera.size(); f++){
+                    ListaEspera z = listaespera.get(f);
                     if (asientos>0) {
-                        for(int i2 = 0; i2<z.getDestino().length;i2++){
-                            if (destino.equals(z.getDestino()[i2])) {
+                        for(int g = 0; g<z.getDestino().length;g++){
+                            if (destino.equals(z.getDestino()[g])) {
                                 Recogidos v = new Recogidos(z.getId(), w.getChapa(), destino);
                                 recogidos.add(v);
                                 data.dataListRecogidos(recogidos);

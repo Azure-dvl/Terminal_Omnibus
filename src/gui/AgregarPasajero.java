@@ -95,7 +95,7 @@ public class AgregarPasajero extends JPanel{
             public void actionPerformed(ActionEvent e){
                 // Llamada de los diferentes metodos de Agregrar Espera y Lista
                 if (espera.isSelected()) {
-                    if (id.getText()==" "||destino1.getText()==" "||destino2.getText()==null||destino3.getText()==" ") {
+                    if (id.getText().equals("")||destino1.getText().equals("")||destino2.getText().equals("")||destino3.getText().equals("")) {
                         JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
                     }
                     else{
@@ -105,6 +105,11 @@ public class AgregarPasajero extends JPanel{
                             destinos[1] = destino2.getText();
                             destinos[2] = destino3.getText();
                             nuevo.Add_ListEspera(id.getText(), destinos);
+
+                            destino1.setText("");
+                            destino2.setText("");
+                            destino3.setText("");
+                            id.setText("");
     
                         }catch(Exception f){
                             JOptionPane.showMessageDialog(null, "ERROR: "+f, "Alerta", JOptionPane.WARNING_MESSAGE);
@@ -112,17 +117,21 @@ public class AgregarPasajero extends JPanel{
                     }
                 }
                 else if(oficial.isSelected()){
-                    if (id.getText()!=" "||destino1.getText()!=""||dia_salida.getText()!="") {
+                    if (id.getText().equals("") || destino1.getText().equals("")||dia_salida.getText().equals("")) {
+                        
+                        JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
+                    }
+                    else{
                         try{
                             nuevo.Add_ListOficial(id.getText(), dia_salida.getText(), destino1.getText());
+
+                            destino1.setText("");
+                            dia_salida.setText("");
+                            id.setText("");
     
                         }catch(Exception f){
                             JOptionPane.showMessageDialog(null, "ERROR: "+f, "Alerta", JOptionPane.WARNING_MESSAGE);
                         }
-                    }
-                    else{
-                        
-                        JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
                     }    
                 }
                 else{JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);}

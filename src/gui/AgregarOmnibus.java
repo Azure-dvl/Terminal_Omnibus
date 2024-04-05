@@ -102,11 +102,18 @@ public class AgregarOmnibus extends JPanel{
                 // Llamada de los diferentes metodos de Agregrar Turismo y Astro
                 if (turismo.isSelected()) {
                     
-                    if(chapa.getText()==" " && destino.getText()==" " && chofer.getText()==" " && asientos.getText()==" " && km.getText()==" " && hora_llegada.getText()==" "){
+                    if(chapa.getText().equals("") || destino.getText().equals("")|| chofer.getText().equals("") || asientos.getText().equals("") || km.getText().equals("") || hora_llegada.getText().equals("")){
                         JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
                     }else{
                         try{
                             nuevo.Add_ListTurismo(chapa.getText(), destino.getText(), chofer.getText(), Integer.valueOf(asientos.getText()), Integer.valueOf(km.getText()), hora_llegada.getText());
+
+                            chapa.setText("");
+                            chofer.setText("");
+                            destino.setText("");
+                            asientos.setText("");
+                            km.setText("");
+                            hora_llegada.setText("");
                         }catch(Exception f){
                             JOptionPane.showMessageDialog(null, "Por favor, solo numeros en las casillas de km y asientos", "Alerta", JOptionPane.WARNING_MESSAGE);
                         }
@@ -114,11 +121,19 @@ public class AgregarOmnibus extends JPanel{
                     
                 }
                 else if(astro.isSelected()){
-                    if(chapa.getText()==" " && destino.getText()==" " && chofer.getText()==" " && asientos.getText()==" " && km.getText()==" " && hora_salida.getText()==" " && dia_salida.getText()==" "){
+                    if(chapa.getText().equals("") || destino.getText().equals("") || chofer.getText().equals("")|| asientos.getText().equals("") || km.getText().equals("") || hora_salida.getText().equals("") || dia_salida.getText().equals("")){
                         JOptionPane.showMessageDialog(null, "Por favor, rellene todas las casillas", "Alerta", JOptionPane.WARNING_MESSAGE);
                     }else{
                         try{
                             nuevo.Add_ListAstro(chapa.getText(), destino.getText(), chofer.getText(), Integer.valueOf(asientos.getText()), Integer.valueOf(km.getText()), dia_salida.getText(), hora_salida.getText());
+
+                            chapa.setText("");
+                            chofer.setText("");
+                            destino.setText("");
+                            asientos.setText("");
+                            km.setText("");
+                            hora_salida.setText("");
+                            dia_salida.setText("");
                         }catch(Exception f){
                             JOptionPane.showMessageDialog(null, "Por favor, solo numeros en las casillas de km y asientos", "Alerta", JOptionPane.WARNING_MESSAGE);
                         }

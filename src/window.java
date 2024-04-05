@@ -19,6 +19,7 @@ public class window extends JFrame{
     AgregarOmnibus omnibus = new AgregarOmnibus();
     Mostrar mostrar = new Mostrar();
     Arrancar arrancar = new Arrancar();
+    Integrantes integrante = new Integrantes();
 
 
     public void run(){
@@ -116,6 +117,8 @@ public class window extends JFrame{
          */
         container.add(contenedor, BorderLayout.NORTH);
         container.add(botones, BorderLayout.SOUTH);
+
+        contenedor.add(integrante);
 
         this.add(buscar, BorderLayout.NORTH);
         this.add(container, BorderLayout.CENTER);
